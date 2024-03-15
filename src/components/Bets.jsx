@@ -41,8 +41,7 @@ export default function Bets() {
                 signer
             )
 
-            // const bets = await betting.getBets(address)
-            const bets = await betting.getBets()
+            const bets = await betting.getBets(address)
             console.log(bets)
 
             let _bets = []
@@ -55,7 +54,9 @@ export default function Bets() {
                 }
                 _bets.push(_bet)
             })
-            setBets(_bets)
+            if(_bets.length > 0) {
+                setBets(_bets)
+            }
         }
 
         if(isConnected) {
@@ -64,7 +65,7 @@ export default function Bets() {
     }, [])
 
     return (
-        <div id="bets" className="bg-[#1A2C38] p-4">
+        <div id="bets" className="bg-[#1A2C38] p-8">
             <ToastContainer/>
             <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-16 py-4">
                 <h1 className="p-8 text-center text-white font-black text-6xl">BET HISTORY</h1>

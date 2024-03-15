@@ -7,6 +7,7 @@ import charlie from "../../public/Charlie.png"
 import rocky from "../../public/Rocky.png"
 import oliver from "../../public/Oliver.png"
 import { FaCircle } from "react-icons/fa6";
+import _hamster from "../../public/hamster.svg"
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
 import { useEffect, useState } from "react"
@@ -64,9 +65,9 @@ export default function Bet() {
                     const id = uuidV4()
                     console.log(id)
 
-                    await bettingCA.place_bet(id, bet, { value: ethers.parseEther(amount) })
-
                     setHamster(true)
+                    
+                    await bettingCA.place_bet(id, bet, { value: ethers.parseEther(amount) })
 
                     bettingCA.on("Bet_Placed", (user, amount, bet, e) => {
                         console.log(user, amount, bet)
@@ -128,9 +129,9 @@ export default function Bet() {
                                 {hamster &&
                                     <div className="animate-spin">
                                         <Image
-                                            src={hamster}
-                                            width={60}
-                                            height={60}
+                                            src={_hamster}
+                                            width={50}
+                                            height={50}
                                             alt="Hamster Image"
                                         />
                                     </div>    
@@ -158,9 +159,9 @@ export default function Bet() {
                                 {hamster &&
                                     <div className="animate-spin">
                                         <Image
-                                            src={hamster}
-                                            width={60}
-                                            height={60}
+                                            src={_hamster}
+                                            width={50}
+                                            height={50}
                                             alt="Hamster Image"
                                         />
                                     </div>    
@@ -188,9 +189,9 @@ export default function Bet() {
                                 {hamster &&
                                     <div className="animate-spin">
                                         <Image
-                                            src={hamster}
-                                            width={60}
-                                            height={60}
+                                            src={_hamster}
+                                            width={50}
+                                            height={50}
                                             alt="Hamster Image"
                                         />
                                     </div>    
@@ -218,9 +219,9 @@ export default function Bet() {
                                 {hamster &&
                                     <div className="animate-spin">
                                         <Image
-                                            src={hamster}
-                                            width={60}
-                                            height={60}
+                                            src={_hamster}
+                                            width={50}
+                                            height={50}
                                             alt="Hamster Image"
                                         />
                                     </div>    

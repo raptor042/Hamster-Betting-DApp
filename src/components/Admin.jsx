@@ -10,6 +10,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 
+import _hamster from "../../public/hamster.svg"
+
 export default function Admin() {
     const [active, setActive] = useState(true)
     const [winner, setWinner] = useState(0)
@@ -37,9 +39,9 @@ export default function Admin() {
                 signer
             )
 
-            await betting.start_betting_round()
-
             setHamster(true)
+
+            await betting.start_betting_round()
             
             betting.on("Betting_Round_Started", (e) => {
                 toast.success("Betting round has started.")
@@ -66,9 +68,9 @@ export default function Admin() {
                     signer
                 )
 
-                await betting.stop_betting_round(winner)
-
                 setHamster(true)
+
+                await betting.stop_betting_round(winner)
                 
                 betting.on("Betting_Round_Ended", (winner, e) => {
                     console.log(winner)
@@ -100,9 +102,9 @@ export default function Admin() {
                                 {hamster &&
                                     <div className="animate-spin">
                                         <Image
-                                            src={hamster}
-                                            width={60}
-                                            height={60}
+                                            src={_hamster}
+                                            width={50}
+                                            height={50}
                                             alt="Hamster Image"
                                         />
                                     </div>    
@@ -136,9 +138,9 @@ export default function Admin() {
                                     {hamster &&
                                         <div className="animate-spin">
                                             <Image
-                                                src={hamster}
-                                                width={60}
-                                                height={60}
+                                                src={_hamster}
+                                                width={50}
+                                                height={50}
                                                 alt="Hamster Image"
                                             />
                                         </div>    

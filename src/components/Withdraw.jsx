@@ -10,6 +10,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 
+import _hamster from "../../public/hamster.svg"
+
 export default function Withdraw() {
     const [balance, setBalance] = useState("--")
     const [amount, setAmount] = useState(0)
@@ -59,9 +61,9 @@ export default function Withdraw() {
                     signer
                 )
 
-                await betting.withdrawal(ethers.parseEther(amount), { value: ethers.parseEther("0") })
-
                 setHamster(true)
+
+                await betting.withdrawal(ethers.parseEther(amount), { value: ethers.parseEther("0") })
                 
                 betting.on("Withdrawal", (user, amount, e) => {
                     console.log(user, amount)
@@ -93,9 +95,9 @@ export default function Withdraw() {
                             {hamster &&
                                 <div className="animate-spin">
                                     <Image
-                                        src={hamster}
-                                        width={60}
-                                        height={60}
+                                        src={_hamster}
+                                        width={50}
+                                        height={50}
                                         alt="Hamster Image"
                                     />
                                 </div>    
