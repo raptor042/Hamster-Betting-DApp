@@ -8,6 +8,7 @@ import { ethers } from "ethers";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
 
 export default function Admin() {
     const [active, setActive] = useState(true)

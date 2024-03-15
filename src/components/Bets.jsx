@@ -81,7 +81,7 @@ export default function Bets() {
                         <tbody>
                             {
                                 bets.map((bet, index) => (
-                                    <tr className={clsx(index % 2 == 0 ? "" : "bg-[#1A2C38]")}>
+                                    <tr key={index} className={clsx(index % 2 == 0 ? "" : "bg-[#1A2C38]")}>
                                         <td className="p-4 text-white font-normal text-lg border border-[#8D969C]">{bet.id}</td>
                                         <td className="p-4 text-white font-normal text-lg border border-[#8D969C]">{bet.wager} ETH</td>
                                         <td className="p-4 text-white font-normal text-lg border border-[#8D969C]">{bet.hamster}</td>
