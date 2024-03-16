@@ -5,17 +5,18 @@ import Image from "next/image";
 import hamster from "../../public/hamster.svg"
 import ConnectWallet from "./ConnectWallet";
 
-import { FaXTwitter, FaDiscord, FaTelegram, FaDice } from "react-icons/fa6"
+import { FaXTwitter, FaDiscord, FaTelegram, FaDice, FaBars } from "react-icons/fa6"
 import Link from "next/link";
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import { BETTING_ABI, BETTING_CA } from "@/context/config"
 import { ethers } from "ethers";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { store } from "@/store";
 
 export default function Header() {
     const [user, setUser] = useState(false)
@@ -29,6 +30,20 @@ export default function Header() {
 
     if(walletProvider) {
         provider = new ethers.BrowserProvider(walletProvider)
+    }
+
+    const { state, dispatch } = useContext(store)
+    const { showSideBar } = state
+
+    const handleSideBar = e => {
+        e.preventDefault()
+
+        dispatch({
+            type : "Display/Hide SideBar",
+            payload : {
+              showSideBar : true
+            }
+        })
     }
 
     useEffect(() => {
@@ -76,7 +91,7 @@ export default function Header() {
     return (
         <div id="header" className="bg-[#1A2C38] border-b border-[#8D969C]">
             <ToastContainer/>
-            <div className="grid grid-cols-3 gap-4 py-6 px-10">
+            <div className="hidden sm:grid grid-cols-3 gap-4 py-6 px-10">
                 <div className="flex flex-row">
                     <div className="basis-1/4">
                         <div className="hover:animate-spin">
@@ -126,6 +141,41 @@ export default function Header() {
                         </div>
                     </div>
                 </div>}
+            </div>
+            <div className="sm:hidden w-full flex flex-row py-3 px-5">
+                <div className="basis-1/6">
+                    <div className="hover:animate-spin">
+                        <Image
+                            src={hamster}
+                            width={40}
+                            height={40}
+                            alt="Hamster Image"
+                        />
+                    </div>
+                </div>
+                <div className="basis-1/2">
+                    <ConnectWallet/>
+                </div>
+                {!user && 
+                    <div className="basis-2/6">
+                        <div className="flex justify-end">
+                            <div>
+                                <button onClick={handleClick} className="rounded-lg animate-pulse hover:animate-none font-black text-white text-center text-xs bg-[#112330] p-2">SIGN IN</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+                {user && 
+                    <div className={showSideBar ? "hidden" : "basis-2/6"}>
+                        <div className="flex justify-end">
+                            <div className="cursor-pointer rounded-lg flex flex-row items-center justify-center p-2 bg-[#112330] animate-pulse hover:animate-none">
+                                <div className="" onClick={handleSideBar}>
+                                    <FaBars size={24} color="#fff" className=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     )

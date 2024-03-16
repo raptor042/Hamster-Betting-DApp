@@ -2,6 +2,7 @@
 
 import Admin from "@/components/Admin";
 import Header from "@/components/Header";
+import MobileNav from "@/components/MobileNav";
 import { BETTING_ABI, BETTING_CA } from "@/context/config";
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react";
 import { ethers } from "ethers";
@@ -49,6 +50,7 @@ export default function AdminPage() {
 
     return (
         <>
+            <MobileNav/>
             <ToastContainer/>
             <section id="heading">
                 <Header/>

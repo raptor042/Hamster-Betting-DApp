@@ -88,9 +88,9 @@ export default function Admin() {
     return (
         <div id="admin" className="bg-[#1A2C38] p-4 h-screen">
             <ToastContainer/>
-            <div className="py-12">
-                <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-16 py-8">
-                    <h1 className="p-8 text-center text-white font-black text-6xl mb-8">ADMIN PAGE</h1>
+            <div className="py-6 sm:py-12">
+                <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-8 py-4 sm:px-16 sm:py-8">
+                    <h1 className="p-4 sm:p-8 text-center text-white font-black text-3xl sm:text-6xl mb-8">ADMIN PAGE</h1>
                     {active && 
                         <div className="flex justify-center items-center mt-8">
                             <div className="m-2">

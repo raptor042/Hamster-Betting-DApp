@@ -90,25 +90,25 @@ export default function Bet() {
     return (
         <div id="bet" className="bg-[#1A2C38] p-4">
             <ToastContainer/>
-            <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-16 py-4">
-                <div className="flex flex-row px-16">
+            <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-4 sm:px-16 py-4">
+                <div className="flex flex-row px-2 sm:px-16">
                     <div className="basis-2/3">
-                        <h1 className="p-8 text-center text-white font-black text-5xl">LIVE BETTING :</h1>
+                        <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-5xl">LIVE BETTING :</h1>
                     </div>
                     <div className="basis-1/3">
-                        <div className="flex flex-row">
-                            <div className="basis-1/4 flex items-center justify-center">
+                        <div className="flex flex-row justify-center">
+                            <div className="hidden basis-1/4 sm:flex items-center justify-center">
                                 <div className="">
-                                    <FaCircle size={32} color={status == 0 ? "#45E4AE" : "#DE8508"} className=""/>
+                                    <FaCircle size={48} color={status == 0 ? "#45E4AE" : "#DE8508"} className=""/>
                                 </div>
                             </div>
-                            <div className="basis-3/4">
-                                <h1 className="p-8 text-center text-white font-black text-5xl">{status == 0 ? "ACTIVE" : "INACTIVE"}</h1>
+                            <div className="sm:basis-3/4">
+                                <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-5xl">{status == 0 ? "ACTIVE" : "INACTIVE"}</h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-rows-4 sm:grid-cols-4 gap-4">
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
