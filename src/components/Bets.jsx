@@ -73,10 +73,10 @@ export default function Bets() {
                     <table className="table-auto w-full rounded-lg border-collapse border border-[#8D969C]">
                         <thead>
                             <tr className="bg-[#1A2C38]">
-                                <th className="p-1 sm:p-4 text-white font-bold text-sm sm:text-2xl border border-[#8D969C]">BetID</th>
-                                <th className="p-1 sm:p-4 text-white font-bold text-sm sm:text-2xl border border-[#8D969C]">Wager</th>
-                                <th className="p-1 sm:p-4 text-white font-bold text-sm sm:text-2xl border border-[#8D969C]">Hamster</th>
-                                <th className="p-1 sm:p-4 text-white font-bold text-sm sm:text-2xl border border-[#8D969C]">Outcome</th>
+                                <th className="p-1 sm:p-4 text-white font-bold text-xs sm:text-2xl border border-[#8D969C]">BetID</th>
+                                <th className="p-1 sm:p-4 text-white font-bold text-xs sm:text-2xl border border-[#8D969C]">Wager</th>
+                                <th className="p-1 sm:p-4 text-white font-bold text-xs sm:text-2xl border border-[#8D969C]">Hamster</th>
+                                <th className="p-1 sm:p-4 text-white font-bold text-xs sm:text-2xl border border-[#8D969C]">Outcome</th>
                             </tr>
                         </thead>
                         <tbody>

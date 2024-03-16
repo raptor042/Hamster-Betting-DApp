@@ -134,7 +134,7 @@ export default function Header() {
                 {user && <div className="px-20 flex justify-end">
                     <div className="rounded-lg flex flex-row items-center justify-center p-4 bg-[#112330] animate-pulse hover:animate-none">
                         <div className="basis-2/3">
-                            <Link href="/" className="mr-2 text-white font-black text-3xl">PLAY</Link>
+                            <Link href="/bet" className="mr-2 text-white font-black text-3xl">PLAY</Link>
                         </div>
                         <div className="basis-1/3">
                             <FaDice size={42} color="#fff" className="ml-2"/>

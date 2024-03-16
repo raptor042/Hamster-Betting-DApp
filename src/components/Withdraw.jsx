@@ -67,8 +67,11 @@ export default function Withdraw() {
                 
                 betting.on("Withdrawal", (user, amount, e) => {
                     console.log(user, amount)
-                    toast.success(`Withdrawal of ${ethers.formatEther(amount)} ETH was successful.`)
-                    setHamster(false)
+
+                    if(user == address) {
+                        toast.success(`Withdrawal of ${ethers.formatEther(amount)} ETH was successful.`)
+                        setHamster(false)
+                    }
                 })
             } else if(amount > balance) {
                 toast.error("Insufficent funds.")
