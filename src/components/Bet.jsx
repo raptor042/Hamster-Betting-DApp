@@ -25,6 +25,11 @@ export default function Bet() {
     const [amount, setAmount] = useState(0)
     const [hamster, setHamster] = useState(false)
 
+    const [rocky, setRocky] = useState("--")
+    const [charlie, setCharlie] = useState("--")
+    const [teddy, setTeddy] = useState("--")
+    const [oliver, setOliver] = useState("--")
+
     const { address, isConnected } = useWeb3ModalAccount()
 
     const { walletProvider } = useWeb3ModalProvider()
@@ -50,6 +55,22 @@ export default function Bet() {
 
             setBettingCA(betting)
             setStatus(Number(status))
+
+            const rocky = await betting.rockyPool()
+            console.log(rocky[0])
+            setRocky(rocky[0])
+
+            const charlie = await betting.charliePool()
+            console.log(charlie[0])
+            setCharlie(charlie[0])
+
+            const teddy = await betting.teddyPool()
+            console.log(teddy[0])
+            setTeddy(teddy[0])
+
+            const oliver = await betting.oliverPool()
+            console.log(oliver[0])
+            setOliver(oliver[0])
         }
 
         if(isConnected) {
@@ -118,7 +139,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">Rocky</h2>
+                                <h2 className="font-black text-white text-3xl">{rocky}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
@@ -148,7 +169,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">Charlie</h2>
+                                <h2 className="font-black text-white text-3xl">{charlie}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
@@ -178,7 +199,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">Teddy</h2>
+                                <h2 className="font-black text-white text-3xl">{teddy}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
@@ -208,7 +229,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">Oliver</h2>
+                                <h2 className="font-black text-white text-3xl">{oliver}</h2>
                             </div>
                             <div className="p-2 mb-2 flex justify-center mt-2">
                                 <Image
