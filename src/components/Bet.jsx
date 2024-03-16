@@ -60,27 +60,31 @@ export default function Bet() {
     const handleClick = async (bet) => {
         console.log(bet, isConnected, status)
         if(isConnected) {
-            if(status == 0) {
-                if(amount >= 0.005 && amount <= 100) {
-                    const id = uuidV4()
-                    console.log(id)
-
-                    setHamster(true)
-                    
-                    await bettingCA.place_bet(id, bet, { value: ethers.parseEther(amount) })
-
-                    bettingCA.on("Bet_Placed", (user, amount, bet, e) => {
-                        console.log(user, amount, bet)
-                        toast.success("Bet placed successfully.")
-                        setHamster(false)
-                    })
-                } else if(amount < 0.005) {
-                    toast.error("Minimum betting amount is 0.005 ETH.")
-                } else if(amount > 100) {
-                    toast.error("Maximum betting amount is 100 ETH.")
-                }
+            if(bet == 4) {
+                toast.error("Oliver is not available at the moment")
             } else {
-                toast.error("Betting is not active at the moment.")
+                if(status == 0) {
+                    if(amount >= 0.005 && amount <= 100) {
+                        const id = uuidV4()
+                        console.log(id)
+
+                        setHamster(true)
+                        
+                        await bettingCA.place_bet(id, bet, { value: ethers.parseEther(amount) })
+
+                        bettingCA.on("Bet_Placed", (user, amount, bet, e) => {
+                            console.log(user, amount, bet)
+                            toast.success("Bet placed successfully.")
+                            setHamster(false)
+                        })
+                    } else if(amount < 0.005) {
+                        toast.error("Minimum betting amount is 0.005 ETH.")
+                    } else if(amount > 100) {
+                        toast.error("Maximum betting amount is 100 ETH.")
+                    }
+                } else {
+                    toast.error("Betting is not active at the moment.")
+                }
             }
         } else {
             toast.error("Wallet not connected.")
