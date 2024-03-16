@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 
-import teddy from "../../public/Teddy.png"
-import charlie from "../../public/Charlie.png"
-import rocky from "../../public/Rocky.png"
-import oliver from "../../public/Oliver.png"
+import _teddy from "../../public/Teddy.png"
+import _charlie from "../../public/Charlie.png"
+import _rocky from "../../public/Rocky.png"
+import _oliver from "../../public/Oliver.png"
 import { FaCircle } from "react-icons/fa6";
 import _hamster from "../../public/hamster.svg"
 
@@ -143,7 +143,7 @@ export default function Bet() {
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
-                                    src={rocky}
+                                    src={_rocky}
                                     width={150}
                                     alt="Rocky"
                                 />
@@ -173,7 +173,7 @@ export default function Bet() {
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
-                                    src={charlie}
+                                    src={_charlie}
                                     width={150}
                                     alt="Charlie"
                                 />
@@ -203,7 +203,7 @@ export default function Bet() {
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
-                                    src={teddy}
+                                    src={_teddy}
                                     width={150}
                                     alt="Teddy"
                                 />
@@ -233,7 +233,7 @@ export default function Bet() {
                             </div>
                             <div className="p-2 mb-2 flex justify-center mt-2">
                                 <Image
-                                    src={oliver}
+                                    src={_oliver}
                                     width={150}
                                     alt="Oliver"
                                 />
