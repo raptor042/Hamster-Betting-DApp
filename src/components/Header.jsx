@@ -18,8 +18,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { store } from "@/store";
 
-export default function Header() {
+export default function Header({ page }) {
     const [user, setUser] = useState(false)
+    const [balance, setBalance] = useState("--")
+    const [bal, setBal] = useState(page == "/" || page == "/admin" ? true : false)
 
     const { address, isConnected } = useWeb3ModalAccount()
 
@@ -57,6 +59,8 @@ export default function Header() {
 
             const user = await betting.users(address)
             console.log(user)
+
+            setBalance(ethers.formatEther(user[1]))
 
             if(user.user == address) {
                 setUser(true)
@@ -114,7 +118,7 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-3">
+                {bal && <div className="grid grid-cols-3">
                     <div className="flex justify-center items-center">
                         <Link href="/">
                             <FaTelegram size={48} color="#fff" className=""/>
@@ -130,7 +134,12 @@ export default function Header() {
                             <FaDiscord size={48} color="#fff" className=""/>
                         </Link>
                     </div>
-                </div>
+                </div>}
+                {!bal && <div className="flex flex-row justify-center">
+                    <div className="my-2 mx-4 rounded-lg bg-[#112330] animate-pulse hover:animate-none p-4">
+                        <h1 className="font-medium text-white text-xl">Balance : {balance} ETH</h1>
+                    </div>
+                </div>}
                 {!user && <div className="px-20 flex justify-end">
                     <div>
                         <button onClick={handleClick} className="rounded-lg animate-pulse hover:animate-none font-black text-white text-center text-2xl bg-[#112330] p-6">SIGN IN</button>

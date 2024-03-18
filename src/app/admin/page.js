@@ -53,7 +53,7 @@ export default function AdminPage() {
             <MobileNav/>
             <ToastContainer/>
             <section id="heading">
-                <Header/>
+                <Header page="/admin"/>
             </section>
             <section id="adminstrator">
                 <Admin/>

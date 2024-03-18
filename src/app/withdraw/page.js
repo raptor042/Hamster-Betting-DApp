@@ -8,7 +8,7 @@ export default function WithdrawPage() {
         <>
             <MobileNav/>
             <section id="heading">
-                <Header/>
+                <Header page="/withdraw"/>
             </section>
             <section id="navigation">
                 <Nav value="withdraw"/>

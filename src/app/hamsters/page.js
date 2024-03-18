@@ -8,7 +8,7 @@ export default function HamstersPage() {
         <>
             <MobileNav/>
             <section id="heading">
-                <Header/>
+                <Header page="/hamsters"/>
             </section>
             <section id="navigation">
                 <Nav value="hamsters"/>

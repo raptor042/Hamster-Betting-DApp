@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       <MobileNav/>
       <section id="heading">
-        <Header/>
+        <Header page="/"/>
       </section>
       <section id="home_page">
         <Home/>

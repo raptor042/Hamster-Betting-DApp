@@ -8,7 +8,7 @@ export default function BetsPage() {
         <>
             <MobileNav/>
             <section id="heading">
-                <Header/>
+                <Header page="/bets"/>
             </section>
             <section id="navigation">
                 <Nav value="bets"/>

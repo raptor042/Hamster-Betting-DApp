@@ -8,7 +8,7 @@ export default function SupportPage() {
         <>
             <MobileNav/>
             <section id="heading">
-                <Header/>
+                <Header page="/support"/>
             </section>
             <section id="navigation">
                 <Nav value="support"/>
