@@ -20,7 +20,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { v4 as uuidV4 } from "uuid"
 
 export default function Bet() {
-    const [bettingCA, setBettingCA] = useState()
     const [status, setStatus] = useState(1)
     const [amount, setAmount] = useState(0)
     const [hamster, setHamster] = useState(false)
@@ -52,8 +51,6 @@ export default function Bet() {
 
             const status = await betting.status()
             console.log(Number(status))
-
-            setBettingCA(betting)
             setStatus(Number(status))
 
             const rocky = await betting.rockyPool()
@@ -79,7 +76,14 @@ export default function Bet() {
     }, [])
 
     const handleClick = async (bet) => {
-        console.log(bet, isConnected, status)
+        const signer = await provider.getSigner()
+
+        const betting = new ethers.Contract(
+            BETTING_CA,
+            BETTING_ABI,
+            signer
+        )
+
         if(isConnected) {
             if(status == 0) {
                 if(bet == 4) {
@@ -91,9 +95,9 @@ export default function Bet() {
 
                         setHamster(true)
                         
-                        await bettingCA.place_bet(id, bet, { value: ethers.parseEther(amount) })
+                        await betting.place_bet(id, bet, { value: ethers.parseEther(amount) })
 
-                        bettingCA.on("Bet_Placed", (user, amount, bet, e) => {
+                        betting.on("Bet_Placed", (user, amount, bet, e) => {
                             console.log(user, amount, bet)
                             if(user == address) {
                                 toast.success("Bet placed successfully.")

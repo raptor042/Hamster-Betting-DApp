@@ -20,7 +20,6 @@ import { store } from "@/store";
 
 export default function Header() {
     const [user, setUser] = useState(false)
-    const [bettingCA, setBettingCA] = useState()
 
     const { address, isConnected } = useWeb3ModalAccount()
 
@@ -56,8 +55,6 @@ export default function Header() {
                 signer
             )
 
-            setBettingCA(betting)
-
             const user = await betting.users(address)
             console.log(user)
 
@@ -74,10 +71,18 @@ export default function Header() {
     const handleClick = async (e) => {
         e.preventDefault()
 
-        if(isConnected) {
-            await bettingCA.createUser()
+        const signer = await provider.getSigner()
 
-            bettingCA.on("User_Created", (user, e) => {
+        const betting = new ethers.Contract(
+            BETTING_CA,
+            BETTING_ABI,
+            signer
+        )
+
+        if(isConnected) {
+            await betting.createUser()
+
+            betting.on("User_Created", (user, e) => {
                 console.log(user)
                 setUser(true)
 
