@@ -18,16 +18,18 @@ import { ethers } from "ethers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { v4 as uuidV4 } from "uuid"
+import Timer from "./Timer";
 
 export default function Bet() {
     const [status, setStatus] = useState(1)
     const [amount, setAmount] = useState(0)
+    const [duration, setDuration] = useState(0)
     const [hamster, setHamster] = useState(false)
 
-    const [rocky, setRocky] = useState("--")
-    const [charlie, setCharlie] = useState("--")
-    const [teddy, setTeddy] = useState("--")
-    const [oliver, setOliver] = useState("--")
+    const [hamsterA, setHamsterA] = useState("--")
+    const [hamsterB, setHamsterB] = useState("--")
+    const [hamsterC, setHamsterC] = useState("--")
+    const [hamsterD, setHamsterD] = useState("--")
 
     const { address, isConnected } = useWeb3ModalAccount()
 
@@ -53,21 +55,25 @@ export default function Bet() {
             console.log(Number(status))
             setStatus(Number(status))
 
-            const rocky = await betting.rockyPool()
-            console.log(rocky[0])
-            setRocky(rocky[0])
+            const duration = await betting.duration()
+            console.log(Number(duration))
+            setDuration(Number(duration))
 
-            const charlie = await betting.charliePool()
-            console.log(charlie[0])
-            setCharlie(charlie[0])
+            const hamsterA = await betting.hamsterAPool()
+            console.log(hamsterA[0])
+            setHamsterA(hamsterA[0])
 
-            const teddy = await betting.teddyPool()
-            console.log(teddy[0])
-            setTeddy(teddy[0])
+            const hamsterB = await betting.hamsterBPool()
+            console.log(hamsterB[0])
+            setHamsterB(hamsterB[0])
 
-            const oliver = await betting.oliverPool()
-            console.log(oliver[0])
-            setOliver(oliver[0])
+            const hamsterC = await betting.hamsterCPool()
+            console.log(hamsterC[0])
+            setHamsterC(hamsterC[0])
+
+            const hamsterD = await betting.hamsterDPool()
+            console.log(hamsterD[0])
+            setHamsterD(hamsterD[0])
         }
 
         if(isConnected) {
@@ -87,7 +93,7 @@ export default function Bet() {
         if(isConnected) {
             if(status == 0) {
                 if(bet == 4) {
-                    toast.error("Oliver is not available at the moment.")
+                    toast.error("Hamster D is not available at the moment.")
                 } else {
                     if(amount >= 0.005 && amount <= 100) {
                         const id = uuidV4()
@@ -139,17 +145,20 @@ export default function Bet() {
                         </div>
                     </div>
                 </div>
+                {/* <div className="flex justify-center mb-8">
+                    <Timer duration={duration}/>
+                </div> */}
                 <div className="grid grid-rows-4 sm:grid-cols-4 gap-4">
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{rocky}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterA}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
                                     src={_rocky}
                                     width={150}
-                                    alt="Rocky"
+                                    alt="Hamster A"
                                 />
                             </div>
                             <div className="mb-2 mt-2 flex justify-center">
@@ -173,13 +182,13 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{charlie}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterB}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
                                     src={_charlie}
                                     width={150}
-                                    alt="Charlie"
+                                    alt="Hamster B"
                                 />
                             </div>
                             <div className="mb-2 mt-2 flex justify-center">
@@ -203,13 +212,13 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{teddy}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterC}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
                                     src={_teddy}
                                     width={150}
-                                    alt="Teddy"
+                                    alt="Hamster C"
                                 />
                             </div>
                             <div className="mb-2 mt-2 flex justify-center">
@@ -233,13 +242,13 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{oliver}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterD}</h2>
                             </div>
                             <div className="p-2 mb-2 flex justify-center mt-2">
                                 <Image
                                     src={_oliver}
                                     width={150}
-                                    alt="Oliver"
+                                    alt="Hamster D"
                                 />
                             </div>
                             <div className="mb-2 mt-2 flex justify-center">

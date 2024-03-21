@@ -33,10 +33,10 @@ export default function AdminPage() {
                 signer
             )
 
-            const owner = await betting.owner()
-            console.log(owner)
+            const isAdmin = await betting.admin(address)
+            console.log(isAdmin)
 
-            if(address != owner) {
+            if(!isAdmin) {
                 toast.error("You are not an adminstrator.")
 
                 window.location.assign("http://localhost:3000")

@@ -23,10 +23,10 @@ export default function Hamsters() {
         losses: "--"
     }
     
-    const [rocky, setRocky] = useState(pool)
-    const [charlie, setCharlie] = useState(pool)
-    const [teddy, setTeddy] = useState(pool)
-    const [oliver, setOliver] = useState(pool)
+    const [hamsterA, setHamsterA] = useState(pool)
+    const [hamsterB, setHamsterB] = useState(pool)
+    const [hamsterC, setHamsterC] = useState(pool)
+    const [hamsterD, sethamsterD] = useState(pool)
 
     const { address, isConnected } = useWeb3ModalAccount()
 
@@ -48,41 +48,41 @@ export default function Hamsters() {
                 signer
             )
 
-            const rocky = await betting.rockyPool()
-            console.log(rocky)
-            const _rocky = {
-                name: rocky[0],
-                wins: Number(rocky[1]),
-                losses: Number(rocky[2])
+            const hamsterA = await betting.hamsterAPool()
+            console.log(hamsterA)
+            const _hamsterA = {
+                name: hamsterA[0],
+                wins: Number(hamsterA[1]),
+                losses: Number(hamsterA[2])
             }
-            setRocky(_rocky)
+            setHamsterA(_hamsterA)
 
-            const charlie = await betting.charliePool()
-            console.log(charlie[0])
-            const _charlie = {
-                name: charlie[0],
-                wins: Number(charlie[1]),
-                losses: Number(charlie[2])
+            const hamsterB = await betting.hamsterBPool()
+            console.log(hamsterB[0])
+            const _hamsterB = {
+                name: hamsterB[0],
+                wins: Number(hamsterB[1]),
+                losses: Number(hamsterB[2])
             }
-            setCharlie(_charlie)
+            setHamsterB(_hamsterB)
 
-            const teddy = await betting.teddyPool()
-            console.log(teddy[0])
-            const _teddy = {
-                name: teddy[0],
-                wins: Number(teddy[1]),
-                losses: Number(teddy[2])
+            const hamsterC = await betting.hamsterCPool()
+            console.log(hamsterC[0])
+            const _hamsterC = {
+                name: hamsterC[0],
+                wins: Number(hamsterC[1]),
+                losses: Number(hamsterC[2])
             }
-            setTeddy(_teddy)
+            setHamsterC(_hamsterC)
 
-            const oliver = await betting.oliverPool()
-            console.log(oliver[0])
-            const _oliver = {
-                name: oliver[0],
-                wins: Number(oliver[1]),
-                losses: Number(oliver[2])
+            const hamsterD = await betting.hamsterDPool()
+            console.log(hamsterD[0])
+            const _hamsterD = {
+                name: hamsterD[0],
+                wins: Number(hamsterD[1]),
+                losses: Number(hamsterD[2])
             }
-            setOliver(_oliver)
+            sethamsterD(_hamsterD)
         }
 
         if(isConnected) {
@@ -99,24 +99,24 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-3xl">{rocky.name}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterA.name}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
                                     src={_rocky}
                                     width={150}
-                                    alt="Rocky"
+                                    alt="Hamster A"
                                 />
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {rocky.wins}</span>
+                                        <span className="font-bold text-md text-white">Won : {hamsterA.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {rocky.losses}</span>
+                                        <span className="font-bold text-md text-white">Lost : {hamsterA.losses}</span>
                                     </div>
                                 </div>
                             </div>
@@ -125,24 +125,24 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-3xl">{charlie.name}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterB.name}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
                                     src={_charlie}
                                     width={150}
-                                    alt="Charlie"
+                                    alt="Hamster B"
                                 />
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {charlie.wins}</span>
+                                        <span className="font-bold text-md text-white">Won : {hamsterB.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {charlie.losses}</span>
+                                        <span className="font-bold text-md text-white">Lost : {hamsterB.losses}</span>
                                     </div>
                                 </div>
                             </div>
@@ -151,24 +151,24 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-3xl">{teddy.name}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterC.name}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
                                     src={_teddy}
                                     width={150}
-                                    alt="Teddy"
+                                    alt="Hamster C"
                                 />
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {teddy.wins}</span>
+                                        <span className="font-bold text-md text-white">Won : {hamsterC.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {teddy.losses}</span>
+                                        <span className="font-bold text-md text-white">Lost : {hamsterC.losses}</span>
                                     </div>
                                 </div>
                             </div>
@@ -177,24 +177,24 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{oliver.name}</h2>
+                                <h2 className="font-black text-white text-3xl">{hamsterD.name}</h2>
                             </div>
                             <div className="p-2 mb-2 flex justify-center">
                                 <Image
                                     src={_oliver}
                                     width={150}
-                                    alt="Oliver"
+                                    alt="Hamster D"
                                 />
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {oliver.wins}</span>
+                                        <span className="font-bold text-md text-white">Won : {hamsterD.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
                                     <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {oliver.losses}</span>
+                                        <span className="font-bold text-md text-white">Lost : {hamsterD.losses}</span>
                                     </div>
                                 </div>
                             </div>

@@ -20,6 +20,22 @@ const sepolia = {
     rpcUrl: "https://sepolia.infura.io/v3/0253203d40d344978948e4641ac65adb"
 }
 
+const base_mainnet = {
+    chainId: 8453,
+    name: "Base Mainnet",
+    currency: "ETH",
+    explorerUrl: "https://basescan.org",
+    rpcUrl: "https://mainnet.base.org"
+}
+
+const base_sepolia = {
+    chainId: 84532,
+    name: "Base Sepolia",
+    currency: "ETH",
+    explorerUrl: "https://sepolia.basescan.org",
+    rpcUrl: "https://sepolia.base.org"
+}
+
 const metadata = {
     name : "Hamster Betting",
     description : "Place your bets on any of your favorite hamsters."
@@ -28,7 +44,7 @@ const metadata = {
 createWeb3Modal({
     ethersConfig: defaultConfig({ metadata }),
     projectId,
-    chains: [mainnet, sepolia]
+    chains: [base_mainnet, base_sepolia]
 })
 
 export function Web3ModalProvider({ children }) {

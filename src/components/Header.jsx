@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import hamster from "../../public/hamster.svg"
+import hamster from "../../public/hamster.png"
 import ConnectWallet from "./ConnectWallet";
 
 import { FaXTwitter, FaDiscord, FaTelegram, FaDice, FaBars } from "react-icons/fa6"

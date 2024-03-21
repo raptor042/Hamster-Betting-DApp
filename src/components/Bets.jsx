@@ -33,7 +33,7 @@ export default function Bets() {
         const getBets = async () => {
             const signer = await provider.getSigner()
             const outcomes = ["Won", "Lost", "Pending"]
-            const hamsters = ["Nil", "Rocky", "Charlie", "Teddy", "Oliver"]
+            const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
 
             const betting = new ethers.Contract(
                 BETTING_CA,
