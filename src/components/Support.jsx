@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaDiscord, FaHeadset, FaTelegram, FaXTwitter } from "react-icons/fa6";
+import { FaDiscord, FaHeadset, FaTelegram, FaWeebly, FaXTwitter } from "react-icons/fa6";
 
 export default function Support() {
     return (
@@ -19,18 +19,18 @@ export default function Support() {
                     <div className="mt-8 sm:px-40 py-4">
                         <div className="grid grid-cols-3">
                             <div className="flex justify-center items-center">
-                                <Link href="/">
+                                <Link href="https://t.me/crypto_hamster_betting_bot">
                                     <FaTelegram size={48} color="#fff" className=""/>
                                 </Link>
                             </div>
                             <div className="flex justify-center items-center">
-                                <Link href="/">
+                                <Link href="https://x.com/racinghamsters">
                                     <FaXTwitter size={48} color="#fff" className=""/>
                                 </Link>
                             </div>
                             <div className="flex justify-center items-center">
-                                <Link href="/">
-                                    <FaDiscord size={48} color="#fff" className=""/>
+                                <Link href="https://www.racinghamsters.com/">
+                                    <FaWeebly size={48} color="#fff" className=""/>
                                 </Link>
                             </div>
                         </div>

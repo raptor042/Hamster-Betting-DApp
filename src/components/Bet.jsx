@@ -24,7 +24,7 @@ export default function Bet() {
     const [status, setStatus] = useState(1)
     const [amount, setAmount] = useState(0)
     const [duration, setDuration] = useState(0)
-    const [hamster, setHamster] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const [hamsterA, setHamsterA] = useState("--")
     const [hamsterB, setHamsterB] = useState("--")
@@ -99,7 +99,7 @@ export default function Bet() {
                         const id = uuidV4()
                         console.log(id)
 
-                        setHamster(true)
+                        setLoading(true)
                         
                         await betting.place_bet(id, bet, { value: ethers.parseEther(amount) })
 
@@ -107,7 +107,7 @@ export default function Bet() {
                             console.log(user, amount, bet)
                             if(user == address) {
                                 toast.success("Bet placed successfully.")
-                                setHamster(false)
+                                setLoading(false)
                             }
                         })
                     } else if(amount < 0.005) {
@@ -130,17 +130,17 @@ export default function Bet() {
             <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-4 sm:px-16 py-4">
                 <div className="flex flex-row px-2 sm:px-16">
                     <div className="basis-2/3">
-                        <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-5xl">LIVE BETTING :</h1>
+                        <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-3xl">LIVE BETTING :</h1>
                     </div>
                     <div className="basis-1/3">
                         <div className="flex flex-row justify-center">
                             <div className="hidden basis-1/4 sm:flex items-center justify-center">
                                 <div className="">
-                                    <FaCircle size={48} color={status == 0 ? "#45E4AE" : "#DE8508"} className=""/>
+                                    <FaCircle size={36} color={status == 0 ? "#45E4AE" : "#DE8508"} className=""/>
                                 </div>
                             </div>
                             <div className="sm:basis-3/4">
-                                <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-5xl">{status == 0 ? "ACTIVE" : "INACTIVE"}</h1>
+                                <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-3xl">{status == 0 ? "ACTIVE" : "INACTIVE"}</h1>
                             </div>
                         </div>
                     </div>
@@ -152,7 +152,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterA}</h2>
+                                <h2 className="font-black text-white text-xl">{hamsterA}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
@@ -165,16 +165,17 @@ export default function Bet() {
                                 <input onChange={(e) => setAmount(e.target.value)} className="w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" placeholder="0.005ETH - 100ETH" />
                             </div>
                             <div className="flex justify-center mt-4">
-                                {!hamster && <button onClick={() => handleClick(1)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
-                                {hamster &&
-                                    <div className="animate-spin">
-                                        <Image
-                                            src={_hamster}
-                                            width={50}
-                                            height={50}
-                                            alt="Hamster Image"
-                                        />
-                                    </div>    
+                                {!loading && <button onClick={() => handleClick(1)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
+                                {loading &&
+                                    <div className="flex justify-center">
+                                        <div role="status">
+                                            <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                                            </svg>
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -182,7 +183,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterB}</h2>
+                                <h2 className="font-black text-white text-xl">{hamsterB}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
@@ -195,16 +196,17 @@ export default function Bet() {
                                 <input onChange={(e) => setAmount(e.target.value)} className="w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" placeholder="0.005ETH - 100ETH" />
                             </div>
                             <div className="flex justify-center mt-4">
-                                {!hamster && <button onClick={() => handleClick(2)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
-                                {hamster &&
-                                    <div className="animate-spin">
-                                        <Image
-                                            src={_hamster}
-                                            width={50}
-                                            height={50}
-                                            alt="Hamster Image"
-                                        />
-                                    </div>    
+                                {!loading && <button onClick={() => handleClick(2)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
+                                {loading &&
+                                    <div className="flex justify-center">
+                                        <div role="status">
+                                            <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                                            </svg>
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -212,7 +214,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterC}</h2>
+                                <h2 className="font-black text-white text-xl">{hamsterC}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2 mt-2">
                                 <Image
@@ -225,16 +227,17 @@ export default function Bet() {
                                 <input onChange={(e) => setAmount(e.target.value)} className="w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" placeholder="0.005ETH - 100ETH" />
                             </div>
                             <div className="flex justify-center mt-4">
-                                {!hamster && <button onClick={() => handleClick(3)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
-                                {hamster &&
-                                    <div className="animate-spin">
-                                        <Image
-                                            src={_hamster}
-                                            width={50}
-                                            height={50}
-                                            alt="Hamster Image"
-                                        />
-                                    </div>    
+                                {!loading && <button onClick={() => handleClick(3)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
+                                {loading &&
+                                    <div className="flex justify-center">
+                                        <div role="status">
+                                            <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                                            </svg>
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -242,7 +245,7 @@ export default function Bet() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterD}</h2>
+                                <h2 className="font-black text-white text-xl">{hamsterD}</h2>
                             </div>
                             <div className="p-2 mb-2 flex justify-center mt-2">
                                 <Image
@@ -255,16 +258,17 @@ export default function Bet() {
                                 <input onChange={(e) => setAmount(e.target.value)} className="w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" placeholder="0.005ETH - 100ETH" />
                             </div>
                             <div className="flex justify-center mt-4">
-                                {!hamster && <button onClick={() => handleClick(4)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
-                                {hamster &&
-                                    <div className="animate-spin">
-                                        <Image
-                                            src={_hamster}
-                                            width={50}
-                                            height={50}
-                                            alt="Hamster Image"
-                                        />
-                                    </div>    
+                                {!loading && <button onClick={() => handleClick(4)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
+                                {loading &&
+                                    <div className="flex justify-center">
+                                        <div role="status">
+                                            <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                                            </svg>
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
                                 }
                             </div>
                         </div>

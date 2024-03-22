@@ -1,9 +1,9 @@
-import { Michroma } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { Web3ModalProvider } from "@/context/Web3Modal";
 import { StateProvider } from "@/store";
 
-const michroma = Michroma({
+const ps2 = Press_Start_2P({
   subsets: ["latin"],
   weight: "400"
 });
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any"/>
       </head>
-      <body className={michroma.className}>
+      <body className={ps2.className}>
         <StateProvider>
           <Web3ModalProvider>{children}</Web3ModalProvider>
         </StateProvider>

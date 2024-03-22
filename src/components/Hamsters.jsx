@@ -99,7 +99,7 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterA.name}</h2>
+                                <h2 className="font-black text-white text-2xl">{hamsterA.name}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
@@ -110,13 +110,13 @@ export default function Hamsters() {
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {hamsterA.wins}</span>
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterA.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {hamsterA.losses}</span>
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterA.losses}</span>
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterB.name}</h2>
+                                <h2 className="font-black text-white text-2xl">{hamsterB.name}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
@@ -136,13 +136,13 @@ export default function Hamsters() {
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {hamsterB.wins}</span>
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterB.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {hamsterB.losses}</span>
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterB.losses}</span>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterC.name}</h2>
+                                <h2 className="font-black text-white text-2xl">{hamsterC.name}</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
@@ -162,13 +162,13 @@ export default function Hamsters() {
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {hamsterC.wins}</span>
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterC.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {hamsterC.losses}</span>
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterC.losses}</span>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-3xl">{hamsterD.name}</h2>
+                                <h2 className="font-black text-white text-2xl">{hamsterD.name}</h2>
                             </div>
                             <div className="p-2 mb-2 flex justify-center">
                                 <Image
@@ -188,13 +188,13 @@ export default function Hamsters() {
                             </div>
                             <div className="flex flex-row">
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#45E4AE] mr-2">
-                                        <span className="font-bold text-md text-white">Won : {hamsterD.wins}</span>
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterD.wins}</span>
                                     </div>
                                 </div>
                                 <div className="basis-1/2">
-                                    <div className="text-center p-2 bg-[#DE8508] ml-2">
-                                        <span className="font-bold text-md text-white">Lost : {hamsterD.losses}</span>
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterD.losses}</span>
                                     </div>
                                 </div>
                             </div>

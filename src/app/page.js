@@ -4,7 +4,7 @@ import MobileNav from "@/components/MobileNav";
 
 export default function HomePage() {
   return (
-    <>
+    <div className="h-screen">
       <MobileNav/>
       <section id="heading">
         <Header page="/"/>
@@ -12,6 +12,6 @@ export default function HomePage() {
       <section id="home_page">
         <Home/>
       </section>
-    </>
+    </div>
   )
 }

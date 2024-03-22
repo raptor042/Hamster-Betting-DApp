@@ -5,7 +5,7 @@ import Image from "next/image";
 import hamster from "../../public/hamster.png"
 import ConnectWallet from "./ConnectWallet";
 
-import { FaXTwitter, FaDiscord, FaTelegram, FaDice, FaBars } from "react-icons/fa6"
+import { FaXTwitter, FaDiscord, FaTelegram, FaDice, FaBars, FaWeebly } from "react-icons/fa6"
 import Link from "next/link";
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
@@ -100,7 +100,7 @@ export default function Header({ page }) {
     return (
         <div id="header" className="bg-[#1A2C38] border-b border-[#8D969C]">
             <ToastContainer/>
-            <div className="hidden sm:grid grid-cols-3 gap-4 py-6 px-10">
+            <div className="hidden sm:grid grid-cols-3 gap-4 py-4 px-10">
                 <div className="flex flex-row">
                     <div className="basis-1/4">
                         <div className="hover:animate-spin">
@@ -120,24 +120,24 @@ export default function Header({ page }) {
                 </div>
                 {bal && <div className="grid grid-cols-3">
                     <div className="flex justify-center items-center">
-                        <Link href="/">
+                        <Link href="https://t.me/crypto_hamster_betting_bot">
                             <FaTelegram size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="/">
+                        <Link href="https://x.com/racinghamsters">
                             <FaXTwitter size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="/">
-                            <FaDiscord size={48} color="#fff" className=""/>
+                        <Link href="https://www.racinghamsters.com/">
+                            <FaWeebly size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                 </div>}
                 {!bal && <div className="flex flex-row justify-center">
                     <div className="my-2 mx-4 rounded-lg bg-[#112330] animate-pulse hover:animate-none p-4">
-                        <h1 className="font-medium text-white text-xl">Balance : {balance} ETH</h1>
+                        <h1 className="font-medium text-white text-lg">Balance : {balance} ETH</h1>
                     </div>
                 </div>}
                 {!user && <div className="px-20 flex justify-end">
