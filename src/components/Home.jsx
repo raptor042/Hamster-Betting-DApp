@@ -2,7 +2,7 @@
 
 export default function Home() {
     return (
-        <div id="home" className="bg-[url('../../public/hamster.jpeg')] bg-cover bg-no-repeat bg-center h-screen">
+        <div id="home" className="bg-[url('../../public/hamster.jpeg')] bg-cover bg-no-repeat bg-center">
             <div className="hidden sm:grid grid-cols-3 gap-4 px-16 py-10">
                 <div className="p-4">
                     <h1 className="font-black text-white text-6xl mb-4">HAMSTER RACING</h1>
