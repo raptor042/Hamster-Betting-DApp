@@ -2,8 +2,8 @@
 
 export default function Home() {
     return (
-        <div id="home" className="bg-[url('../../public/hamster.jpeg')] bg-cover bg-no-repeat bg-center">
-            <div className="hidden sm:grid grid-cols-3 gap-4 px-16 py-10">
+        <div id="home" className="bg-[url('../../public/hamster.jpeg')] bg-cover bg-no-repeat bg-center h-screen">
+            <div className="hidden sm:grid grid-cols-3 gap-4 px-16 py-16">
                 <div className="p-4">
                     <h1 className="font-black text-white text-6xl mb-4">HAMSTER RACING</h1>
                     <p className="font-bold text-white text-sm mt-4 mb-4">Hamsters is a betting platform where you can bet on live hamsters. The hamsters are real and the bets are real. The hamsters are running on a track and the first hamster to cross the finish line wins.</p>
