@@ -45,7 +45,7 @@ export default function Admin() {
             } catch (error) {
                 console.log(error)
                 setLoading(false)
-                toast.error(error)
+                toast.error("An error occured while processing this request.")
             }
             
             betting.on("Betting_Round_Started", (duration, e) => {
@@ -80,7 +80,7 @@ export default function Admin() {
                 } catch (error) {
                     console.log(error)
                     setLoading(false)
-                    toast.error(error)
+                    toast.error("Betting duration not yet exceeded.")
                 }
                 
                 betting.on("Betting_Round_Ended", (winner, e) => {

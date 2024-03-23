@@ -65,7 +65,7 @@ export default function Withdraw() {
                 } catch (error) {
                     console.log(error)
                     setLoading(false)
-                    toast.error(error)
+                    toast.error("An error occured while processing this request.")
                 }
                 
                 betting.on("Withdrawal", (user, amount, e) => {

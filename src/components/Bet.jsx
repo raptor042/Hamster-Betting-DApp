@@ -104,7 +104,7 @@ export default function Bet() {
                         } catch (error) {
                             console.log(error)
                             setLoading(false)
-                            toast.error(error)
+                            toast.error("Betting round is over.")
                         }
 
                         betting.on("Bet_Placed", (user, amount, bet, e) => {
