@@ -71,7 +71,7 @@ export default function Header({ page }) {
         if(isConnected) {
             userExists()
         }
-    }, [])
+    }, [address, isConnected, provider, user])
 
     const handleClick = async (e) => {
         e.preventDefault()

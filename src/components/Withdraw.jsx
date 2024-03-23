@@ -43,7 +43,7 @@ export default function Withdraw() {
         if(isConnected) {
             getBalance()
         }
-    }, [])
+    }, [address, isConnected, provider])
 
     const withdraw = async (e) => {
         e.preventDefault()

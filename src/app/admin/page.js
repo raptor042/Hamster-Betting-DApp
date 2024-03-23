@@ -46,7 +46,7 @@ export default function AdminPage() {
         if(isConnected) {
             getOwner()
         }
-    }, [])
+    }, [address, isConnected, provider])
 
     return (
         <>

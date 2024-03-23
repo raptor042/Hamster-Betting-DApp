@@ -16,7 +16,7 @@ export default function ConnectWallet() {
 
             setAccount(_address)
         }
-    }, [isConnected])
+    }, [address, isConnected])
 
     const truncate = (_address) => {
         const start = _address.substring(0, 6)

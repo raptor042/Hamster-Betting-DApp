@@ -22,7 +22,7 @@ export default function Timer({ duration }) {
         }
             
         return () => clearInterval(interval)
-    }, [seconds, minutes])
+    }, [seconds, minutes, duration])
 
     return (
         <div id="timer" className="rounded-lg bg-[#1A2C38] p-4 flex flex-row justify-center items-center">

@@ -87,7 +87,7 @@ export default function Hamsters() {
         if(isConnected) {
             getPools()
         }
-    }, [])
+    }, [isConnected, provider])
 
     return (
         <div id="hams_ters" className="bg-[#0052FE] p-4">

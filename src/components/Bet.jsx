@@ -77,7 +77,7 @@ export default function Bet() {
         if(isConnected) {
             getStatus()
         }
-    }, [])
+    }, [isConnected, provider])
 
     const handleClick = async (bet) => {
         const signer = await provider.getSigner()

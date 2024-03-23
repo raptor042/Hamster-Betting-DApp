@@ -62,7 +62,7 @@ export default function Bets() {
         if(isConnected) {
             getBets()
         }
-    }, [])
+    }, [address, isConnected, provider])
 
     return (
         <div id="bets" className="bg-[#0052FE] p-2 sm:p-8 h-screen sm:h-full">
