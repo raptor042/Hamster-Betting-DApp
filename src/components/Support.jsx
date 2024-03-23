@@ -19,7 +19,7 @@ export default function Support() {
                     <div className="mt-8 sm:px-40 py-4">
                         <div className="grid grid-cols-3">
                             <div className="flex justify-center items-center">
-                                <Link href="https://t.me/crypto_hamster_betting_bot">
+                                <Link href="https://t.me/racinghamstersbot">
                                     <FaTelegram size={48} color="#fff" className=""/>
                                 </Link>
                             </div>
