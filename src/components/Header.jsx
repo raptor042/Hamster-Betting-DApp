@@ -106,8 +106,8 @@ export default function Header({ page }) {
                         <div className="hover:animate-spin">
                             <Image
                                 src={hamster}
-                                width={80}
-                                height={80}
+                                width={100}
+                                height={100}
                                 alt="Hamster Image"
                             />
                         </div>
