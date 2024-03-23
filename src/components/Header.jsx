@@ -148,7 +148,7 @@ export default function Header({ page }) {
                 {!bal && 
                     <div className="flex flex-row justify-end">
                         <div className="my-2 rounded-lg bg-[#112330] animate-pulse hover:animate-none p-4">
-                            <h1 className="font-medium text-white text-lg">Balance : {balance} ETH</h1>
+                            <h1 className="font-medium text-white text-sm">Balance : {balance} ETH</h1>
                         </div>
                     </div>
                 }
