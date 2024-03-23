@@ -22,7 +22,7 @@ export default function MobileNav({ value }) {
     }
 
     return (
-        <div id="mobile-nav" className={showSideBar ? "absolute top-10 left-0 sm:hidden flex flex-col w-screen h-screen bg-[#1A2C38] opacity-90 px-8" : "hidden"}>
+        <div id="mobile-nav" className={showSideBar ? "absolute top-10 left-0 sm:hidden flex flex-col w-screen h-screen bg-[#0052FE] opacity-90 px-8" : "hidden"}>
             <div className="basis-1/6 flex flex-row items-center justify-end">
                 <FaXmark size={24} color="#fff" onClick={handleSideBar}/>
             </div>
@@ -46,17 +46,17 @@ export default function MobileNav({ value }) {
             <div className="basis-2/6 mt-12">
                 <div className="grid grid-cols-3">
                     <div className="flex justify-center items-center">
-                        <Link href="/">
+                        <Link href="https://t.me/crypto_hamster_betting_bot">
                             <FaTelegram size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="/">
+                        <Link href="https://x.com/racinghamsters">
                             <FaXTwitter size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="/">
+                        <Link href="https://www.racinghamsters.com/">
                             <FaDiscord size={48} color="#fff" className=""/>
                         </Link>
                     </div>

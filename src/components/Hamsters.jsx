@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 
-import _teddy from "../../public/Teddy.png"
-import _charlie from "../../public/Charlie.png"
-import _rocky from "../../public/Rocky.png"
-import _oliver from "../../public/Oliver.png"
+import ck from "../../public/ck.jpeg"
+import ansem from "../../public/ansem.jpeg"
+import trump from "../../public/trump.jpeg"
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
 import { useEffect, useState } from "react"
@@ -26,7 +25,7 @@ export default function Hamsters() {
     const [hamsterA, setHamsterA] = useState(pool)
     const [hamsterB, setHamsterB] = useState(pool)
     const [hamsterC, setHamsterC] = useState(pool)
-    const [hamsterD, sethamsterD] = useState(pool)
+    // const [hamsterD, setHamsterD] = useState(pool)
 
     const { address, isConnected } = useWeb3ModalAccount()
 
@@ -75,14 +74,14 @@ export default function Hamsters() {
             }
             setHamsterC(_hamsterC)
 
-            const hamsterD = await betting.hamsterDPool()
-            console.log(hamsterD[0])
-            const _hamsterD = {
-                name: hamsterD[0],
-                wins: Number(hamsterD[1]),
-                losses: Number(hamsterD[2])
-            }
-            sethamsterD(_hamsterD)
+            // const hamsterD = await betting.hamsterDPool()
+            // console.log(hamsterD[0])
+            // const _hamsterD = {
+            //     name: hamsterD[0],
+            //     wins: Number(hamsterD[1]),
+            //     losses: Number(hamsterD[2])
+            // }
+            // setHamsterD(_hamsterD)
         }
 
         if(isConnected) {
@@ -91,20 +90,20 @@ export default function Hamsters() {
     }, [])
 
     return (
-        <div id="hams_ters" className="bg-[#1A2C38] p-4">
+        <div id="hams_ters" className="bg-[#0052FE] p-4">
             <ToastContainer/>
             <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-4 sm:px-16 py-4">
                 <h1 className="p-4 sm:p-8 text-center text-white font-black text-2xl sm:text-6xl">OUR HAMSTERS</h1>
-                <div className="grid grid-rows-4 sm:grid-cols-4 gap-4">
+                <div className="hidden sm:grid grid-cols-3 gap-4 mb-4">
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-2xl">{hamsterA.name}</h2>
+                                <h2 className="font-black text-white text-2xl">CK</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
-                                    src={_rocky}
-                                    width={150}
+                                    src={ck}
+                                    width={250}
                                     alt="Hamster A"
                                 />
                             </div>
@@ -125,12 +124,12 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-2xl">{hamsterB.name}</h2>
+                                <h2 className="font-black text-white text-2xl">ANSEM</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
-                                    src={_charlie}
-                                    width={150}
+                                    src={ansem}
+                                    width={250}
                                     alt="Hamster B"
                                 />
                             </div>
@@ -151,12 +150,12 @@ export default function Hamsters() {
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
-                                <h2 className="font-black text-white text-2xl">{hamsterC.name}</h2>
+                                <h2 className="font-black text-white text-2xl">TRUMP</h2>
                             </div>
                             <div className="p-2 flex justify-center mb-2">
                                 <Image
-                                    src={_teddy}
-                                    width={150}
+                                    src={trump}
+                                    width={250}
                                     alt="Hamster C"
                                 />
                             </div>
@@ -174,7 +173,7 @@ export default function Hamsters() {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-[#1A2C38] p-4">
+                    {/* <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
                                 <h2 className="font-black text-white text-2xl">{hamsterD.name}</h2>
@@ -182,7 +181,7 @@ export default function Hamsters() {
                             <div className="p-2 mb-2 flex justify-center">
                                 <Image
                                     src={_oliver}
-                                    width={150}
+                                    width={250}
                                     alt="Hamster D"
                                 />
                             </div>
@@ -199,7 +198,113 @@ export default function Hamsters() {
                                 </div>
                             </div>
                         </div>
+                    </div> */}
+                </div>
+                <div className="sm:hidden grid grid-rows-3 gap-4 mb-4">
+                    <div className="bg-[#1A2C38] p-4">
+                        <div className="">
+                            <div className="text-center p-2">
+                                <h2 className="font-black text-white text-2xl">CK</h2>
+                            </div>
+                            <div className="p-2 flex justify-center mb-2">
+                                <Image
+                                    src={ck}
+                                    width={250}
+                                    alt="Hamster A"
+                                />
+                            </div>
+                            <div className="flex flex-row">
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterA.wins}</span>
+                                    </div>
+                                </div>
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterA.losses}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div className="bg-[#1A2C38] p-4">
+                        <div className="">
+                            <div className="text-center p-2">
+                                <h2 className="font-black text-white text-2xl">ANSEM</h2>
+                            </div>
+                            <div className="p-2 flex justify-center mb-2">
+                                <Image
+                                    src={ansem}
+                                    width={250}
+                                    alt="Hamster B"
+                                />
+                            </div>
+                            <div className="flex flex-row">
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterB.wins}</span>
+                                    </div>
+                                </div>
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterB.losses}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bg-[#1A2C38] p-4">
+                        <div className="">
+                            <div className="text-center p-2">
+                                <h2 className="font-black text-white text-2xl">TRUMP</h2>
+                            </div>
+                            <div className="p-2 flex justify-center mb-2">
+                                <Image
+                                    src={trump}
+                                    width={250}
+                                    alt="Hamster C"
+                                />
+                            </div>
+                            <div className="flex flex-row">
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterC.wins}</span>
+                                    </div>
+                                </div>
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterC.losses}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="bg-[#1A2C38] p-4">
+                        <div className="">
+                            <div className="text-center p-2 mb-2">
+                                <h2 className="font-black text-white text-2xl">{hamsterD.name}</h2>
+                            </div>
+                            <div className="p-2 mb-2 flex justify-center">
+                                <Image
+                                    src={_oliver}
+                                    width={250}
+                                    alt="Hamster D"
+                                />
+                            </div>
+                            <div className="flex flex-row">
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#45E4AE] mr-2">
+                                        <span className="font-bold text-xs text-white">Won : {hamsterD.wins}</span>
+                                    </div>
+                                </div>
+                                <div className="basis-1/2">
+                                    <div className="text-center px-1 py-2 bg-[#DE8508] ml-2">
+                                        <span className="font-bold text-xs text-white">Lost : {hamsterD.losses}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> */}
                 </div>
             </div>
         </div>

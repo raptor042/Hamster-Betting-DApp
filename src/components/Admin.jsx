@@ -8,9 +8,6 @@ import { ethers } from "ethers";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Image from "next/image";
-
-import _hamster from "../../public/hamster.svg"
 
 export default function Admin() {
     const [start, setStart] = useState(true)
@@ -57,7 +54,7 @@ export default function Admin() {
     const stop_bet = async (e) => {
         e.preventDefault()
 
-        const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
+        const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
 
         if(isConnected) {
             if(winner > 0) {
@@ -70,14 +67,14 @@ export default function Admin() {
                     signer
                 )
 
-                setHamster(true)
+                setLoading(true)
 
                 await betting.stop_betting_round(winner)
                 
                 betting.on("Betting_Round_Ended", (winner, e) => {
                     console.log(winner)
                     toast.success(`Betting round has ended with ${hamsters[winner]} as the winner.`)
-                    setHamster(false)
+                    setLoading(false)
                 })
             } else {
                 toast.info("Please select a winner.")
@@ -88,7 +85,7 @@ export default function Admin() {
     }
 
     return (
-        <div id="admin" className="bg-[#1A2C38] p-4 h-screen">
+        <div id="admin" className="bg-[#0052FE] p-4 h-screen">
             <ToastContainer/>
             <div className="py-6 sm:py-12">
                 <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-8 py-4 sm:px-16 sm:py-8">
@@ -142,10 +139,10 @@ export default function Admin() {
                                 <div className="my-8">
                                     <select onChange={(e) => setWinner(e.target.value)} className=" w-full font-normal text-white text-sm p-4 rounded-lg bg-[#0F212E] border border-[#8D969C]">
                                         <option value={0}>---</option>
-                                        <option value={1}>Hamster A</option>
-                                        <option value={2}>Hamster B</option>
-                                        <option value={3}>Hamster C</option>
-                                        <option value={4}>Hamster D</option>
+                                        <option value={1}>CK</option>
+                                        <option value={2}>ANSEM</option>
+                                        <option value={3}>TRUMP</option>
+                                        {/* <option value={4}>Hamster D</option> */}
                                     </select>
                                 </div>
                                 <div className="my-8">

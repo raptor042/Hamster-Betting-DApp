@@ -8,9 +8,6 @@ import { ethers } from "ethers";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Image from "next/image";
-
-import _hamster from "../../public/hamster.svg"
 
 export default function Withdraw() {
     const [balance, setBalance] = useState("--")
@@ -84,7 +81,7 @@ export default function Withdraw() {
     }
 
     return (
-        <div id="withdraw" className="bg-[#1A2C38] p-4 sm:p-10 h-screen sm:h-full">
+        <div id="withdraw" className="bg-[#0052FE] p-4 sm:p-10 h-screen sm:h-full">
             <ToastContainer/>
             <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-8 py-4 sm:px-16 sm:py-8">
                 <h1 className="p-4 sm:p-8 text-center text-white font-black text-xl sm:text-4xl mb-8">YOUR BALANCE IS {balance} ETH</h1>

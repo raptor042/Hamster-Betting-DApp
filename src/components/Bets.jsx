@@ -33,7 +33,7 @@ export default function Bets() {
         const getBets = async () => {
             const signer = await provider.getSigner()
             const outcomes = ["Won", "Lost", "Pending"]
-            const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
+            const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
 
             const betting = new ethers.Contract(
                 BETTING_CA,
@@ -65,7 +65,7 @@ export default function Bets() {
     }, [])
 
     return (
-        <div id="bets" className="bg-[#1A2C38] p-2 sm:p-8 h-screen sm:h-full">
+        <div id="bets" className="bg-[#0052FE] p-2 sm:p-8 h-screen sm:h-full">
             <ToastContainer/>
             <div className="sm:rounded-lg sm:bg-[#0F212E] sm:border sm:border-[#8D969C] sm:px-16 sm:py-4">
                 <h1 className="p-2 sm:p-8 text-center text-white font-black text-xl sm:text-6xl">BET HISTORY</h1>

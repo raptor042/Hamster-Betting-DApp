@@ -5,7 +5,7 @@ import Image from "next/image";
 import hamster from "../../public/hamster.png"
 import ConnectWallet from "./ConnectWallet";
 
-import { FaXTwitter, FaDiscord, FaTelegram, FaDice, FaBars, FaWeebly } from "react-icons/fa6"
+import { FaXTwitter, FaTelegram, FaDice, FaBars, FaWeebly } from "react-icons/fa6"
 import Link from "next/link";
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
@@ -98,7 +98,7 @@ export default function Header({ page }) {
     }
 
     return (
-        <div id="header" className="bg-[#1A2C38] border-b border-[#8D969C]">
+        <div id="header" className="bg-[#0052FE] border-b border-white">
             <ToastContainer/>
             <div className="hidden sm:grid grid-cols-3 gap-4 py-4 px-10">
                 <div className="flex flex-row">
@@ -113,7 +113,7 @@ export default function Header({ page }) {
                         </div>
                     </div>
                     <div className="basis-3/4">
-                        <div className="my-2 mx-4">
+                        <div className="my-2">
                             <ConnectWallet/>
                         </div>
                     </div>
@@ -135,20 +135,20 @@ export default function Header({ page }) {
                         </Link>
                     </div>
                 </div>}
-                {!bal && <div className="flex flex-row justify-center">
-                    <div className="my-2 mx-4 rounded-lg bg-[#112330] animate-pulse hover:animate-none p-4">
+                {!bal && <div className="flex flex-row justify-end">
+                    <div className="my-2 rounded-lg bg-[#112330] animate-pulse hover:animate-none p-4">
                         <h1 className="font-medium text-white text-lg">Balance : {balance} ETH</h1>
                     </div>
                 </div>}
-                {!user && <div className="px-20 flex justify-end">
-                    <div>
-                        <button onClick={handleClick} className="rounded-lg animate-pulse hover:animate-none font-black text-white text-center text-2xl bg-[#112330] p-6">SIGN IN</button>
+                {!user && <div className="px-10 flex justify-end">
+                    <div className="my-2">
+                        <button onClick={handleClick} className="rounded-lg animate-pulse hover:animate-none font-black text-white text-center text-xl bg-[#112330] p-4">SIGN IN</button>
                     </div>
                 </div>}
-                {user && <div className="px-20 flex justify-end">
-                    <div className="rounded-lg flex flex-row items-center justify-center p-4 bg-[#112330] animate-pulse hover:animate-none">
+                {user && <div className="px-10 flex justify-end">
+                    <div className="my-2 rounded-lg flex flex-row items-center justify-center p-4 bg-[#112330] animate-pulse hover:animate-none">
                         <div className="basis-2/3">
-                            <Link href="/bet" className="mr-2 text-white font-black text-3xl">PLAY</Link>
+                            <Link href="/bet" className="mr-2 text-white font-black text-xl">PLAY</Link>
                         </div>
                         <div className="basis-1/3">
                             <FaDice size={42} color="#fff" className="ml-2"/>

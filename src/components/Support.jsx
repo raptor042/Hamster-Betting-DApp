@@ -3,7 +3,7 @@ import { FaDiscord, FaHeadset, FaTelegram, FaWeebly, FaXTwitter } from "react-ic
 
 export default function Support() {
     return (
-        <div id="support" className="bg-[#1A2C38] p-4 sm:p-16 sm:h-full h-screen">
+        <div id="support" className="bg-[#0052FE] p-4 sm:p-16 sm:h-full h-screen">
             <div className="">
                 <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-8 py-4 sm:px-16 sm:py-8">
                     <div className="flex justify-center px-8 py-2 sm:px-8 sm:py-4 mb-8">

@@ -21,7 +21,7 @@ export default function Nav({ value }) {
     }
 
     return (
-        <div id="nav" className="bg-[#1A2C38]">
+        <div id="nav" className="bg-[#0052FE]">
             <div className="hidden sm:grid grid-cols-5 gap-4 px-16 py-4">
                 <div onClick={handleSideBar} className={clsx("text-center", value == "hamsters" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
                     <Link href="/hamsters" className={clsx(value == "hamsters" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>HAMSTERS</Link>
