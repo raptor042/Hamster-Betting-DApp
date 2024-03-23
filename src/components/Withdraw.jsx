@@ -60,7 +60,13 @@ export default function Withdraw() {
 
                 setLoading(true)
 
-                await betting.withdrawal(ethers.parseEther(amount), { value: ethers.parseEther("0") })
+                try {
+                    await betting.withdrawal(ethers.parseEther(amount), { value: ethers.parseEther("0") })
+                } catch (error) {
+                    console.log(error)
+                    setLoading(false)
+                    toast.error(error)
+                }
                 
                 betting.on("Withdrawal", (user, amount, e) => {
                     console.log(user, amount)

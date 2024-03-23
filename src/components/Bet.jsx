@@ -99,7 +99,13 @@ export default function Bet() {
 
                         setLoading(true)
                         
-                        await betting.place_bet(id, bet, { value: ethers.parseEther(amount) })
+                        try {
+                            await betting.place_bet(id, bet, { value: ethers.parseEther(amount) })
+                        } catch (error) {
+                            console.log(error)
+                            setLoading(false)
+                            toast.error(error)
+                        }
 
                         betting.on("Bet_Placed", (user, amount, bet, e) => {
                             console.log(user, amount, bet)

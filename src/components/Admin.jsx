@@ -40,7 +40,13 @@ export default function Admin() {
 
             setLoading(true)
 
-            await betting.start_betting_round(duration)
+            try {
+                await betting.start_betting_round(duration)
+            } catch (error) {
+                console.log(error)
+                setLoading(false)
+                toast.error(error)
+            }
             
             betting.on("Betting_Round_Started", (duration, e) => {
                 toast.success(`Betting round has started and will end in ${duration} minutes.`)
@@ -69,7 +75,13 @@ export default function Admin() {
 
                 setLoading(true)
 
-                await betting.stop_betting_round(winner)
+                try {
+                    await betting.stop_betting_round(winner)
+                } catch (error) {
+                    console.log(error)
+                    setLoading(false)
+                    toast.error(error)
+                }
                 
                 betting.on("Betting_Round_Ended", (winner, e) => {
                     console.log(winner)

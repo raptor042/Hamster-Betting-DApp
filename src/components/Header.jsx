@@ -84,7 +84,13 @@ export default function Header({ page }) {
         )
 
         if(isConnected) {
-            await betting.createUser()
+            try {
+                await betting.createUser()
+            } catch (error) {
+                console.log(error)
+                setLoading(false)
+                toast.error(error)
+            }
 
             betting.on("User_Created", (user, e) => {
                 console.log(user)
