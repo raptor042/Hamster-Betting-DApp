@@ -4,7 +4,7 @@ import { store } from "@/store";
 import clsx from "clsx";
 import Link from "next/link";
 import { useContext } from "react";
-import { FaDiscord, FaTelegram, FaXTwitter, FaXmark } from "react-icons/fa6";
+import { FaTelegram, FaWeebly, FaXTwitter, FaXmark } from "react-icons/fa6";
 
 export default function MobileNav({ value }) {
     const { state, dispatch } = useContext(store)
@@ -57,7 +57,7 @@ export default function MobileNav({ value }) {
                     </div>
                     <div className="flex justify-center items-center">
                         <Link href="https://www.racinghamsters.com/">
-                            <FaDiscord size={48} color="#fff" className=""/>
+                            <FaWeebly size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                 </div>
