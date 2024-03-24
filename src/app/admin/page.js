@@ -39,7 +39,7 @@ export default function AdminPage() {
             if(!isAdmin) {
                 toast.error("You are not an adminstrator.")
 
-                window.location.assign("http://localhost:3000")
+                window.location.assign("https://www.racinghamsters.com/bet")
             }
         }
 
