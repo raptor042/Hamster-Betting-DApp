@@ -1,4 +1,4 @@
-export const BETTING_CA = "0x08dc7F7043D8560e7Dc15d7d4525bF08905F243e"
+export const BETTING_CA = "0xd2C68Cd5975290eACB4feB81CbA9Cd4eF72F93D6"
 
 export const BETTING_ABI = [
   {
@@ -191,6 +191,19 @@ export const BETTING_ABI = [
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_wallet",
+        "type": "address"
+      }
+    ],
+    "name": "changeWallet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "createUser",
     "outputs": [],
@@ -213,6 +226,19 @@ export const BETTING_ABI = [
   {
     "inputs": [],
     "name": "fee",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fees",
     "outputs": [
       {
         "internalType": "uint256",
@@ -542,6 +568,19 @@ export const BETTING_ABI = [
         "internalType": "uint256",
         "name": "balance",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "wallet",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",

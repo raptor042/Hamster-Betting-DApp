@@ -65,7 +65,6 @@ export default function Withdraw() {
                 } catch (error) {
                     console.log(error)
                     setLoading(false)
-                    setAmount(null)
                     toast.error("An error occured while processing this request.")
                 }
                 
@@ -75,7 +74,6 @@ export default function Withdraw() {
                     if(user == address) {
                         toast.success(`Withdrawal of ${ethers.formatEther(amount)} ETH was successful.`)
                         setLoading(false)
-                        setAmount(null)
                     }
                 })
             } else if(amount > balance) {
@@ -99,7 +97,7 @@ export default function Withdraw() {
                             <div>
                                 <input value={amount} onChange={(e) => setAmount(e.target.value)} className="m-4 w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" min={0.005} max={100} step={0.005} placeholder="0.005 ETH" />
                                 <button onClick={() => setAmount(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MIN</button>
-                                <button onClick={() => setAmount(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-sm bg-[#45E4AE] p-2 m-2">MAX</button>
+                                <button onClick={() => setAmount(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-sm bg-[#45E4AE] p-2 m-2">MAX</button>
                             </div>
                         </div>
                         <div className="mt-4 flex justify-center">
