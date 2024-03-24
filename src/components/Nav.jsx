@@ -22,15 +22,12 @@ export default function Nav({ value }) {
 
     return (
         <div id="nav" className="bg-[#0052FE]">
-            <div className="hidden sm:grid grid-cols-6 gap-4 px-16 py-4">
+            <div className="hidden sm:grid grid-cols-5 gap-4 px-16 py-4">
                 <div onClick={handleSideBar} className={clsx("text-center", value == "hamsters" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
                     <Link href="/hamsters" className={clsx(value == "hamsters" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>HAMSTERS</Link>
                 </div>
                 <div onClick={handleSideBar} className={clsx("text-center", value == "bet" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
-                    <Link href="/bet" className={clsx(value == "bet" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>BET</Link>
-                </div>
-                <div onClick={handleSideBar} className={clsx("text-center", value == "play" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
-                    <Link href="/live" className={clsx(value == "play" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>STREAM</Link>
+                    <Link href="/bet" className={clsx(value == "bet" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>LIVE BET</Link>
                 </div>
                 <div onClick={handleSideBar} className={clsx("text-center", value == "bets" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
                     <Link href="/bets" className={clsx(value == "bets" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>BETS</Link>
