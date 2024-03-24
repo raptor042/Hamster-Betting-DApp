@@ -42,17 +42,15 @@ export default function Admin() {
 
             try {
                 await betting.start_betting_round(duration * 60)
+
+                setLoading(false)
             } catch (error) {
                 console.log(error)
-                setLoading(false)
-                setStart(true)
                 toast.error("An error occured while processing this request.")
             }
             
             betting.on("Betting_Round_Started", (duration, e) => {
                 toast.success(`Betting round has started and will end in ${Number(duration) / 60} minutes.`)
-                setLoading(false)
-                setDuration()
             })
         } else {
             toast.error("Wallet not connected.")
@@ -75,15 +73,15 @@ export default function Admin() {
 
             try {
                 await betting.stop_betting_round()
+
+                setLoading(false)
             } catch (error) {
                 console.log(error)
-                setLoading(false)
                 toast.error("Betting duration not yet exceeded.")
             }
             
             betting.on("Betting_Round_Ended", (duration, e) => {
                 toast.success(`Betting round has ended.`)
-                setLoading(false)
             })
         } else {
             toast.error("Wallet not connected.")
@@ -110,17 +108,16 @@ export default function Admin() {
 
                 try {
                     await betting.pick_winner(winner)
+
+                    setLoading(false)
                 } catch (error) {
                     console.log(error)
-                    setLoading(false)
-                    setPick(true)
                     toast.error("An error occured while processing this request.")
                 }
                 
                 betting.on("Winner", (winner, e) => {
                     console.log(winner)
                     toast.success(`The winner of this betting round is ${hamsters[winner]}.`)
-                    setLoading(false)
                 })
             } else {
                 toast.info("Please select a winner.")

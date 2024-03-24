@@ -104,9 +104,10 @@ export default function Bet() {
                         
                         try {
                             await betting.place_bet(id, bet, { value: ethers.parseEther(amount) })
+
+                            setLoading(false)
                         } catch (error) {
                             console.log(error)
-                            setLoading(false)
                             toast.error("Betting round is over.")
                         }
 
@@ -114,7 +115,6 @@ export default function Bet() {
                             console.log(user, amount, bet)
                             if(user == address) {
                                 toast.success("Bet placed successfully.")
-                                setLoading(false)
                             }
                         })
                     } else if(amount < 0.005) {

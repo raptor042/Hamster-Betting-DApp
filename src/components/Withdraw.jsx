@@ -62,9 +62,10 @@ export default function Withdraw() {
 
                 try {
                     await betting.withdrawal(ethers.parseEther(amount), { value: ethers.parseEther("0") })
+
+                    setLoading(false)
                 } catch (error) {
                     console.log(error)
-                    setLoading(false)
                     toast.error("An error occured while processing this request.")
                 }
                 
@@ -73,7 +74,6 @@ export default function Withdraw() {
 
                     if(user == address) {
                         toast.success(`Withdrawal of ${ethers.formatEther(amount)} ETH was successful.`)
-                        setLoading(false)
                     }
                 })
             } else if(amount > balance) {
