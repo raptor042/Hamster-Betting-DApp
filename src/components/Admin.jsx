@@ -50,7 +50,7 @@ export default function Admin() {
             }
             
             betting.on("Betting_Round_Started", (duration, e) => {
-                toast.success(`Betting round has started and will end in ${duration / 60} minutes.`)
+                toast.success(`Betting round has started and will end in ${Number(duration) / 60} minutes.`)
                 setLoading(false)
                 setDuration()
             })
