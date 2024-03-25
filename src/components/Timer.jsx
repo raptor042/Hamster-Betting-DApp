@@ -36,6 +36,10 @@ export default function Timer() {
         const interval = setInterval(() => {
             getTimestamp()
         }, 1000)
+
+        if(timeOut) {
+            deactivate()
+        }
             
         return () => clearInterval(interval)
     }, [second, minute])
@@ -70,7 +74,6 @@ export default function Timer() {
 
         if(_second <= 0) {
             setTimeOut(true)
-            deactivate()
         }
     }
 
