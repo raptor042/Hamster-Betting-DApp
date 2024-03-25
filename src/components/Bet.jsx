@@ -159,7 +159,7 @@ export default function Bet() {
                                 </div>
                             </div>
                             <div className="sm:basis-3/4">
-                                <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-3xl">{status == 0 || active ? "ACTIVE" : "INACTIVE"}</h1>
+                                <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-3xl">{status == 0 ? "ACTIVE" : "INACTIVE"}</h1>
                             </div>
                         </div>
                     </div>

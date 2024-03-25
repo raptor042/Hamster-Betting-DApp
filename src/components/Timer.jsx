@@ -40,7 +40,7 @@ export default function Timer() {
         if(second <= 0 && minute <= 0) {
             clearInterval(interval)
             setTimeOut(true)
-            deactivate()
+            // deactivate()
         }
     }, [second, minute])
 
