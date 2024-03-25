@@ -34,8 +34,6 @@ export default function Bet() {
     const { active } = state
 
     const activate = () => {
-        e.preventDefault()
-
         dispatch({
             type : "Activate",
             payload : {
