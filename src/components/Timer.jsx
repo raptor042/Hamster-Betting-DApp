@@ -37,11 +37,11 @@ export default function Timer() {
             getTimestamp()
         }, 1000)
 
-        if(timeOut) {
+        if(second <= 0 && minute <= 0) {
+            clearInterval(interval)
+            setTimeOut(true)
             deactivate()
         }
-            
-        return () => clearInterval(interval)
     }, [second, minute])
 
 
@@ -71,10 +71,6 @@ export default function Timer() {
 
         setMinute(Math.floor((_second % (60 * 60)) / 60))
         setSecond(Math.floor(_second % 60))
-
-        if(_second <= 0) {
-            setTimeOut(true)
-        }
     }
 
     return (
