@@ -13,7 +13,7 @@ export default function Timer() {
 
     const { dispatch } = useContext(store)
 
-    const deactivate = e => {
+    const deactivate = () => {
         e.preventDefault()
 
         dispatch({

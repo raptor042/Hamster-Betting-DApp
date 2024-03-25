@@ -33,7 +33,7 @@ export default function Bet() {
     const { state, dispatch } = useContext(store)
     const { active } = state
 
-    const activate = e => {
+    const activate = () => {
         e.preventDefault()
 
         dispatch({
