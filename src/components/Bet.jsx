@@ -8,7 +8,7 @@ import trump from "../../public/trump.jpeg"
 import { FaCircle } from "react-icons/fa6";
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import { BETTING_ABI, BETTING_CA } from "@/context/config"
 import { ethers } from "ethers";
@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { v4 as uuidV4 } from "uuid"
 import Timer from "./Timer";
 import Live from "./Live";
+import { store } from "@/store";
 
 export default function Bet() {
     const [status, setStatus] = useState(1)

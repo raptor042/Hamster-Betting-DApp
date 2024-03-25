@@ -1,9 +1,10 @@
 "use client"
 
 import { BETTING_ABI, BETTING_CA } from "@/context/config";
+import { store } from "@/store";
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react";
 import { ethers } from "ethers";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Timer() {
     const [second, setSecond] = useState("--")
