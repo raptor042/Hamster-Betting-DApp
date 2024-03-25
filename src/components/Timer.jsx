@@ -10,6 +10,19 @@ export default function Timer() {
     const [minute, setMinute] = useState("--")
     const [timeOut, setTimeOut] = useState(false)
 
+    const { dispatch } = useContext(store)
+
+    const deactivate = e => {
+        e.preventDefault()
+
+        dispatch({
+            type : "Deactivate",
+            payload : {
+              active : false
+            }
+        })
+    }
+
     const { address, isConnected } = useWeb3ModalAccount()
 
     const { walletProvider } = useWeb3ModalProvider()
@@ -58,6 +71,7 @@ export default function Timer() {
 
         if(_second <= 0) {
             setTimeOut(true)
+            deactivate()
         }
     }
 

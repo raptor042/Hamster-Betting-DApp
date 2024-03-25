@@ -3,7 +3,8 @@
 import { createContext, useReducer } from "react";
 
 const initialState = {
-    showSideBar : false
+    showSideBar : false,
+    active : false
 };
 
 const store = createContext(initialState);
@@ -18,6 +19,16 @@ const StateProvider = ({ children }) => {
                 return {
                     ...state,
                     showSideBar : payload.showSideBar
+                };
+            case "Activate" :
+                return {
+                    ...state,
+                    active : payload.active
+                };
+            case "Deactivate" :
+                return {
+                        ...state,
+                    active : payload.active
                 };
             default :
                 throw new Error()

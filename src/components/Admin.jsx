@@ -47,10 +47,12 @@ export default function Admin() {
             } catch (error) {
                 console.log(error)
                 toast.error("An error occured while processing this request.")
+                setLoading(false)
             }
             
             betting.on("Betting_Round_Started", (duration, e) => {
                 toast.success(`Betting round has started and will end in ${Number(duration) / 60} minutes.`)
+                setLoading(false)
             })
         } else {
             toast.error("Wallet not connected.")
@@ -78,10 +80,12 @@ export default function Admin() {
             } catch (error) {
                 console.log(error)
                 toast.error("Betting duration not yet exceeded.")
+                setLoading(false)
             }
             
             betting.on("Betting_Round_Ended", (duration, e) => {
                 toast.success(`Betting round has ended.`)
+                setLoading(false)
             })
         } else {
             toast.error("Wallet not connected.")
@@ -113,11 +117,13 @@ export default function Admin() {
                 } catch (error) {
                     console.log(error)
                     toast.error("An error occured while processing this request.")
+                    setLoading(false)
                 }
                 
                 betting.on("Winner", (winner, e) => {
                     console.log(winner)
                     toast.success(`The winner of this betting round is ${hamsters[winner]}.`)
+                    setLoading(false)
                 })
             } else {
                 toast.info("Please select a winner.")

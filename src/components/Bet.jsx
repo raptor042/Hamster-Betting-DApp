@@ -21,7 +21,6 @@ import Live from "./Live";
 
 export default function Bet() {
     const [status, setStatus] = useState(1)
-    const [active, setActive] = useState(false)
     const [amount, setAmount] = useState(0)
     const [loading, setLoading] = useState(false)
 
@@ -29,6 +28,20 @@ export default function Bet() {
     const [hamsterB, setHamsterB] = useState("--")
     const [hamsterC, setHamsterC] = useState("--")
     // const [hamsterD, setHamsterD] = useState("--")
+
+    const { state, dispatch } = useContext(store)
+    const { active } = state
+
+    const activate = e => {
+        e.preventDefault()
+
+        dispatch({
+            type : "Activate",
+            payload : {
+              active : true
+            }
+        })
+    }
 
     const { address, isConnected } = useWeb3ModalAccount()
 
@@ -55,9 +68,7 @@ export default function Bet() {
             setStatus(Number(status))
 
             if(Number(status) == 0) {
-                setActive(true)
-            } else {
-                setActive(false)
+                activate()
             }
 
             const hamsterA = await betting.hamsterAPool()
@@ -109,12 +120,14 @@ export default function Bet() {
                         } catch (error) {
                             console.log(error)
                             toast.error("Betting round is over.")
+                            setLoading(false)
                         }
 
                         betting.on("Bet_Placed", (user, amount, bet, e) => {
                             console.log(user, amount, bet)
                             if(user == address) {
                                 toast.success("Bet placed successfully.")
+                                setLoading(false)
                             }
                         })
                     } else if(amount < 0.005) {
@@ -147,7 +160,7 @@ export default function Bet() {
                                 </div>
                             </div>
                             <div className="sm:basis-3/4">
-                                <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-3xl">{status == 0 ? "ACTIVE" : "INACTIVE"}</h1>
+                                <h1 className="p-2 sm:p-8 text-center text-white font-black text-sm sm:text-3xl">{status == 0 || active ? "ACTIVE" : "INACTIVE"}</h1>
                             </div>
                         </div>
                     </div>
