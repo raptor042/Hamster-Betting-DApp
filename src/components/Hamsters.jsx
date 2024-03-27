@@ -5,6 +5,7 @@ import Image from "next/image";
 import ck from "../../public/ck.jpeg"
 import ansem from "../../public/ansem.jpeg"
 import trump from "../../public/trump.jpeg"
+import sus from "../../public/sus.jpg"
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
 import { useEffect, useState } from "react"
@@ -25,7 +26,7 @@ export default function Hamsters() {
     const [hamsterA, setHamsterA] = useState(pool)
     const [hamsterB, setHamsterB] = useState(pool)
     const [hamsterC, setHamsterC] = useState(pool)
-    // const [hamsterD, setHamsterD] = useState(pool)
+    const [hamsterD, setHamsterD] = useState(pool)
 
     const { address, isConnected } = useWeb3ModalAccount()
 
@@ -74,14 +75,14 @@ export default function Hamsters() {
             }
             setHamsterC(_hamsterC)
 
-            // const hamsterD = await betting.hamsterDPool()
-            // console.log(hamsterD[0])
-            // const _hamsterD = {
-            //     name: hamsterD[0],
-            //     wins: Number(hamsterD[1]),
-            //     losses: Number(hamsterD[2])
-            // }
-            // setHamsterD(_hamsterD)
+            const hamsterD = await betting.hamsterDPool()
+            console.log(hamsterD[0])
+            const _hamsterD = {
+                name: hamsterD[0],
+                wins: Number(hamsterD[1]),
+                losses: Number(hamsterD[2])
+            }
+            setHamsterD(_hamsterD)
         }
 
         if(isConnected) {
@@ -94,7 +95,7 @@ export default function Hamsters() {
             <ToastContainer/>
             <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-4 sm:px-16 py-4">
                 <h1 className="p-4 sm:p-8 text-center text-white font-black text-2xl sm:text-6xl">OUR HAMSTERS</h1>
-                <div className="hidden sm:grid grid-cols-3 gap-4 mb-4">
+                <div className="hidden sm:grid grid-cols-4 gap-4 mb-4">
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
@@ -173,14 +174,14 @@ export default function Hamsters() {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="bg-[#1A2C38] p-4">
+                    <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-2xl">{hamsterD.name}</h2>
+                                <h2 className="font-black text-white text-2xl">SUS</h2>
                             </div>
                             <div className="p-2 mb-2 flex justify-center">
                                 <Image
-                                    src={_oliver}
+                                    src={sus}
                                     width={250}
                                     alt="Hamster D"
                                 />
@@ -198,9 +199,9 @@ export default function Hamsters() {
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
-                <div className="sm:hidden grid grid-rows-3 gap-4 mb-4">
+                <div className="sm:hidden grid grid-rows-4 gap-4 mb-4">
                     <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2">
@@ -279,14 +280,14 @@ export default function Hamsters() {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="bg-[#1A2C38] p-4">
+                    <div className="bg-[#1A2C38] p-4">
                         <div className="">
                             <div className="text-center p-2 mb-2">
-                                <h2 className="font-black text-white text-2xl">{hamsterD.name}</h2>
+                                <h2 className="font-black text-white text-2xl">SUS</h2>
                             </div>
                             <div className="p-2 mb-2 flex justify-center">
                                 <Image
-                                    src={_oliver}
+                                    src={sus}
                                     width={250}
                                     alt="Hamster D"
                                 />
@@ -304,7 +305,7 @@ export default function Hamsters() {
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

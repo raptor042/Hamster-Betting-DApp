@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaDiscord, FaHeadset, FaTelegram, FaWeebly, FaXTwitter } from "react-icons/fa6";
+import { FaHeadset, FaTelegram, FaWeebly, FaXTwitter } from "react-icons/fa6";
 
 export default function Support() {
     return (

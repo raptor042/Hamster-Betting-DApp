@@ -5,6 +5,7 @@ import Image from "next/image";
 import ck from "../../public/ck.jpeg"
 import ansem from "../../public/ansem.jpeg"
 import trump from "../../public/trump.jpeg"
+import sus from "../../public/sus.jpg"
 import { FaCircle } from "react-icons/fa6";
 
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react"
@@ -22,15 +23,16 @@ import { store } from "@/store";
 
 export default function Bet() {
     const [status, setStatus] = useState(1)
-    const [amount3, setAmount3] = useState()
     const [amount1, setAmount1] = useState()
     const [amount2, setAmount2] = useState()
+    const [amount3, setAmount3] = useState()
+    const [amount4, setAmount4] = useState()
     const [loading, setLoading] = useState(false)
 
     const [hamsterA, setHamsterA] = useState("--")
     const [hamsterB, setHamsterB] = useState("--")
     const [hamsterC, setHamsterC] = useState("--")
-    // const [hamsterD, setHamsterD] = useState("--")
+    const [hamsterD, setHamsterD] = useState("--")
 
     const { state, dispatch } = useContext(store)
     const { active } = state
@@ -84,9 +86,9 @@ export default function Bet() {
             console.log(hamsterC[0])
             setHamsterC(hamsterC[0])
 
-            // const hamsterD = await betting.hamsterDPool()
-            // console.log(hamsterD[0])
-            // setHamsterD(hamsterD[0])
+            const hamsterD = await betting.hamsterDPool()
+            console.log(hamsterD[0])
+            setHamsterD(hamsterD[0])
         }
 
         if(isConnected) {
@@ -192,6 +194,35 @@ export default function Bet() {
                     } else if(amount3 > 100) {
                         toast.error("Maximum betting amount is 100 ETH.")
                     }
+                } else if(bet == 4) {
+                    if(amount4 >= 0.005 && amount4 <= 100) {
+                        const id = uuidV4()
+                        console.log(id)
+
+                        setLoading(true)
+                        
+                        try {
+                            await betting.place_bet(id, bet, { value: ethers.parseEther(`${amount4}`) })
+
+                            setLoading(false)
+                        } catch (error) {
+                            console.log(error)
+                            toast.error("Betting round is over.")
+                            setLoading(false)
+                        }
+
+                        betting.on("Bet_Placed", (user, amount, bet, e) => {
+                            console.log(user, amount, bet)
+                            if(user == address) {
+                                toast.success("Bet placed successfully.")
+                                setLoading(false)
+                            }
+                        })
+                    } else if(amount4 < 0.005) {
+                        toast.error("Minimum betting amount is 0.005 ETH.")
+                    } else if(amount4 > 100) {
+                        toast.error("Maximum betting amount is 100 ETH.")
+                    }
                 }
             } else {
                 toast.error("Betting is not active at the moment.")
@@ -233,7 +264,7 @@ export default function Bet() {
                     </div>
                 }
                 {status == 0 &&
-                    <div className="hidden sm:grid grid-cols-3 gap-4 mb-4">
+                    <div className="hidden sm:grid grid-cols-4 gap-4 mb-4">
                         <div className="bg-[#1A2C38] p-2 sm:p-8">
                             <div className="">
                                 <div className="text-center p-2 mb-2">
@@ -339,20 +370,24 @@ export default function Bet() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="bg-[#1A2C38] p-4">
+                        <div className="bg-[#1A2C38] p-4">
                             <div className="">
                                 <div className="text-center p-2 mb-2">
-                                    <h2 className="font-black text-white text-xl">{hamsterD}</h2>
+                                    <h2 className="font-black text-white text-xl">SUS</h2>
                                 </div>
                                 <div className="p-2 mb-2 flex justify-center mt-2">
                                     <Image
-                                        src={_oliver}
-                                        width={150}
+                                        src={sus}
+                                        width={250}
                                         alt="Hamster D"
                                     />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
-                                    <input onChange={(e) => setAmount(e.target.value)} className="w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" placeholder="0.005ETH - 100ETH" />
+                                    <input value={amount4} onChange={(e) => setAmount4(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" min={0.005} max={100} step={0.005} placeholder="0.005ETH - 100ETH" />
+                                </div>
+                                <div className="mb-2 mt-2 flex justify-center">
+                                    <button onClick={() => setAmount4(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MIN</button>
+                                    <button onClick={() => setAmount4(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(4)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -369,11 +404,11 @@ export default function Bet() {
                                     }
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 }
                 {status == 0 &&
-                    <div className="sm:hidden grid grid-rows-3 gap-4 mb-4">
+                    <div className="sm:hidden grid grid-rows-4 gap-4 mb-4">
                         <div className="bg-[#1A2C38] p-4">
                             <div className="">
                                 <div className="text-center p-2 mb-2">
@@ -387,7 +422,7 @@ export default function Bet() {
                                     />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
-                                    <input value={amount1} onChange={(e) => setAmount1(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-white" type="number"  placeholder="0.005ETH - 100ETH" />
+                                    <input value={amount1} onChange={(e) => setAmount1(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-white" type="number" min={0.005} max={100} step={0.005} placeholder="0.005ETH - 100ETH" />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount1(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
@@ -422,7 +457,7 @@ export default function Bet() {
                                     />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
-                                    <input value={amount2} onChange={(e) => setAmount2(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-white" type="number"  placeholder="0.005ETH - 100ETH" />
+                                    <input value={amount2} onChange={(e) => setAmount2(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-white" type="number" min={0.005} max={100} step={0.005} placeholder="0.005ETH - 100ETH" />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount2(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
@@ -457,7 +492,7 @@ export default function Bet() {
                                     />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
-                                    <input value={amount3} onChange={(e) => setAmount3(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-white" type="number"  placeholder="0.005ETH - 100ETH" />
+                                    <input value={amount3} onChange={(e) => setAmount3(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-white" type="number" min={0.005} max={100} step={0.005} placeholder="0.005ETH - 100ETH" />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount3(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
@@ -479,20 +514,24 @@ export default function Bet() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="bg-[#1A2C38] p-4">
+                        <div className="bg-[#1A2C38] p-4">
                             <div className="">
                                 <div className="text-center p-2 mb-2">
-                                    <h2 className="font-black text-white text-xl">{hamsterD}</h2>
+                                    <h2 className="font-black text-white text-xl">SUS</h2>
                                 </div>
                                 <div className="p-2 mb-2 flex justify-center mt-2">
                                     <Image
-                                        src={_oliver}
-                                        width={150}
+                                        src={sus}
+                                        width={250}
                                         alt="Hamster D"
                                     />
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
-                                    <input onChange={(e) => setAmount(e.target.value)} className="w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" placeholder="0.005ETH - 100ETH" />
+                                    <input value={amount4} onChange={(e) => setAmount4(e.target.value)} className="w-full font-normal text-white text-xs px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" min={0.005} max={100} step={0.005} placeholder="0.005ETH - 100ETH" />
+                                </div>
+                                <div className="mb-2 mt-2 flex justify-center">
+                                    <button onClick={() => setAmount4(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
+                                    <button onClick={() => setAmount4(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(4)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -509,7 +548,7 @@ export default function Bet() {
                                     }
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 }
             </div>

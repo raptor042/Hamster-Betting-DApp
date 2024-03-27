@@ -33,7 +33,7 @@ export default function Bets() {
         const getBets = async () => {
             const signer = await provider.getSigner()
             const outcomes = ["Won", "Lost", "Pending"]
-            const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
+            const hamsters = ["Nil", "CK", "ANSEM", "TRUMP", "SUS"]
 
             const betting = new ethers.Contract(
                 BETTING_CA,
@@ -48,9 +48,9 @@ export default function Bets() {
             bets.forEach((bet) => {
                 const _bet = {
                     id: bet[0],
-                    wager: ethers.formatEther(bet[1]),
-                    hamster: hamsters[Number(bet[2])],
-                    outcome: outcomes[Number(bet[3])]
+                    wager: ethers.formatEther(bet[2]),
+                    hamster: hamsters[Number(bet[3])],
+                    outcome: outcomes[Number(bet[4])]
                 }
                 _bets.push(_bet)
             })

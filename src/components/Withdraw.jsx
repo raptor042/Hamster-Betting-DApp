@@ -92,7 +92,7 @@ export default function Withdraw() {
         <div id="withdraw" className="bg-[#0052FE] p-4 sm:p-10 h-screen sm:h-full">
             <ToastContainer/>
             <div className="rounded-lg bg-[#0F212E] border border-[#8D969C] px-8 py-4 sm:px-16 sm:py-8">
-                <h1 className="p-4 sm:p-8 text-center text-white font-black text-xl sm:text-4xl mb-8">YOUR BALANCE IS {balance} ETH</h1>
+                <h1 className="p-4 sm:p-8 text-center text-white font-black text-xl sm:text-4xl mb-8">YOUR BALANCE IS {Number(balance).toFixed(4)} ETH</h1>
                 <div className="flex justify-center items-center">
                     <div className="">
                         <div className="flex justify-center mb-2">
