@@ -95,12 +95,12 @@ export default function Withdraw() {
                 <h1 className="p-4 sm:p-8 text-center text-white font-black text-xl sm:text-4xl mb-8">YOUR BALANCE IS {balance} ETH</h1>
                 <div className="flex justify-center items-center">
                     <div className="">
+                        <div className="flex justify-center mb-2">
+                            <input value={amount} onChange={(e) => setAmount(e.target.value)} className="m-4 w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" min={0.005} max={balance} step={0.005} placeholder="0.005 ETH" />
+                        </div>
                         <div className="flex justify-center mb-4">
-                            <div>
-                                <input value={amount} onChange={(e) => setAmount(e.target.value)} className="m-4 w-56 font-normal text-white text-sm px-2 py-4 rounded-lg bg-[#0F212E] border border-[#8D969C]" type="number" min={0.005} max={balance} step={0.005} placeholder="0.005 ETH" />
-                                <button onClick={() => setAmount(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1 sm:p-2 sm:m-2">MIN</button>
-                                <button onClick={() => setAmount(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1 sm:p-2 sm:m-2">MAX</button>
-                            </div>
+                            <button onClick={() => setAmount(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1 sm:p-2 sm:m-2">MIN</button>
+                            <button onClick={() => setAmount(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1 sm:p-2 sm:m-2">MAX</button>
                         </div>
                         <div className="mt-4 flex justify-center">
                             {!loading && <button onClick={withdraw} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xl bg-[#45E4AE] p-4">Withdraw</button>}
