@@ -91,15 +91,15 @@ export default function Header({ page }) {
                 await betting.createUser()
             } catch (error) {
                 console.log(error)
-                toast.error("You already have an account.")
                 setLoading(false)
+                toast.error("You already have an account.")
             }
 
             betting.on("User_Created", (user, e) => {
                 console.log(user)
+                setLoading(false)
                 setUser(true)
                 toast.success("Your betting account has been created.")
-                setLoading(false)
             })
         } else {
             toast.error("Wallet not connected.")
