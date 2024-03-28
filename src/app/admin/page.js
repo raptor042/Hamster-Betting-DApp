@@ -4,10 +4,11 @@ import Admin from "@/components/Admin";
 import Header from "@/components/Header";
 import MobileNav from "@/components/MobileNav";
 import { BETTING_ABI, BETTING_CA } from "@/context/config";
+import { store } from "@/store";
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,6 +23,9 @@ export default function AdminPage() {
     if(walletProvider) {
         provider = new ethers.BrowserProvider(walletProvider)
     }
+
+    const { state } = useContext(store)
+    const { showSideBar } = state
 
     useEffect(() => {
         const getOwner = async () => {
@@ -50,14 +54,18 @@ export default function AdminPage() {
 
     return (
         <>
-            <MobileNav/>
             <ToastContainer/>
-            <section id="heading">
-                <Header page="/admin"/>
-            </section>
-            <section id="adminstrator">
-                <Admin/>
-            </section>
+            {showSideBar && <MobileNav/>}
+            {!showSideBar &&
+                <>
+                    <section id="heading">
+                        <Header page="/admin"/>
+                    </section>
+                    <section id="adminstrator">
+                        <Admin/>
+                    </section>
+                </>
+            }
         </>
     )
 }

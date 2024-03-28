@@ -23,6 +23,7 @@ import { store } from "@/store";
 
 export default function Bet() {
     const [status, setStatus] = useState(1)
+    const [balance, setBalance] = useState()
     const [amount1, setAmount1] = useState()
     const [amount2, setAmount2] = useState()
     const [amount3, setAmount3] = useState()
@@ -73,6 +74,10 @@ export default function Bet() {
             if(Number(status) == 0) {
                 activate()
             }
+
+            const balance = await provider.getBalance(address)
+            console.log(ethers.formatEther(balance))
+            setBalance(ethers.formatEther(balance))
 
             const hamsterA = await betting.hamsterAPool()
             console.log(hamsterA[0])
@@ -282,7 +287,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount1(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MIN</button>
-                                    <button onClick={() => setAmount1(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
+                                    <button onClick={() => setAmount1(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(1)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -317,7 +322,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount2(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MIN</button>
-                                    <button onClick={() => setAmount2(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
+                                    <button onClick={() => setAmount2(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(2)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -352,7 +357,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount3(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MIN</button>
-                                    <button onClick={() => setAmount3(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
+                                    <button onClick={() => setAmount3(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(3)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -387,7 +392,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount4(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MIN</button>
-                                    <button onClick={() => setAmount4(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
+                                    <button onClick={() => setAmount4(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-2 m-2">MAX</button>
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(4)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -426,7 +431,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount1(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
-                                    <button onClick={() => setAmount1(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
+                                    <button onClick={() => setAmount1(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(1)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -461,7 +466,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount2(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
-                                    <button onClick={() => setAmount2(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
+                                    <button onClick={() => setAmount2(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(2)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -496,7 +501,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount3(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
-                                    <button onClick={() => setAmount3(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
+                                    <button onClick={() => setAmount3(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(3)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}
@@ -531,7 +536,7 @@ export default function Bet() {
                                 </div>
                                 <div className="mb-2 mt-2 flex justify-center">
                                     <button onClick={() => setAmount4(0.005)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MIN</button>
-                                    <button onClick={() => setAmount4(100)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
+                                    <button onClick={() => setAmount4(balance)} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs bg-[#45E4AE] p-1 m-1">MAX</button>        
                                 </div>
                                 <div className="flex justify-center mt-4">
                                     {!loading && <button onClick={() => handleClick(4)} className="rounded-lg animate-pulse hover:animate-none p-4 text-white font-bold text-md bg-[#45E4AE]">Place Bet</button>}

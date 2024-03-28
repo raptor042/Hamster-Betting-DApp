@@ -134,12 +134,12 @@ export default function Header({ page }) {
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="https://x.com/racinghamsters">
+                        <Link href="https://x.com/hamstersracing">
                             <FaXTwitter size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="https://www.racinghamsters.com/">
+                        <Link href="https://rev.racinghamsters.com/">
                             <FaWeebly size={48} color="#fff" className=""/>
                         </Link>
                     </div>
