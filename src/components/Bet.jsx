@@ -264,6 +264,11 @@ export default function Bet() {
                     </div>
                 }
                 {status == 1 &&
+                    <div className="text-center">
+                        <span className="font-bold text-xs sm:text-sm font-mono text-white">If betting is active on-chain but does not reflect on this page, Please refresh the page.</span>
+                    </div>
+                }
+                {status == 1 &&
                     <div className="p-2 sm:p-8 h-screen sm:h-full">
                         <Live/>
                     </div>

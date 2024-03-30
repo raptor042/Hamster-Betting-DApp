@@ -67,7 +67,7 @@ export default function MobileNav({ value }) {
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="https://x.com/hamstersracing">
+                        <Link href="https://x.com/racinghamsters">
                             <FaXTwitter size={48} color="#fff" className=""/>
                         </Link>
                     </div>
