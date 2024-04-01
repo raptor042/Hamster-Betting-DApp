@@ -29,7 +29,7 @@ export default function ConnectWallet() {
         <div id="connect-wallet">
             <button onClick={() => open()} className="rounded-lg animate-pulse hover:animate-none font-medium text-white text-center text-xs sm:text-lg bg-[#DE8508] p-2 sm:p-4">
                 { isConnected ?
-                    account : "Connect Wallet"
+                    account : "Connect"
                 }
             </button>
         </div>
