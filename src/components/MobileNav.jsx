@@ -55,6 +55,9 @@ export default function MobileNav({ value }) {
                 <div onClick={() => handleClick("/withdraw")} className={clsx("mb-2", "mt-2", "text-center", value == "withdraw" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-6", "py-6")}>
                     <span className={clsx(value == "withdraw" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>WITHDRAW</span>
                 </div>
+                <div onClick={() => handleClick("/about")} className={clsx( "mt-2", "text-center", value == "about" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-6", "py-6")}>
+                    <span className={clsx(value == "about" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>SUPPORT</span>
+                </div>
                 <div onClick={() => handleClick("/support")} className={clsx( "mt-2", "text-center", value == "support" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-6", "py-6")}>
                     <span className={clsx(value == "support" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>SUPPORT</span>
                 </div>

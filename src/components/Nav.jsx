@@ -22,7 +22,7 @@ export default function Nav({ value }) {
 
     return (
         <div id="nav" className="bg-[#0052FE]">
-            <div className="hidden sm:grid grid-cols-5 gap-4 px-16 py-4">
+            <div className="hidden sm:grid grid-cols-6 gap-4 px-16 py-4">
                 <div onClick={handleSideBar} className={clsx("text-center", value == "hamsters" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
                     <Link href="/hamsters" className={clsx(value == "hamsters" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>HAMSTERS</Link>
                 </div>
@@ -34,6 +34,9 @@ export default function Nav({ value }) {
                 </div>
                 <div onClick={handleSideBar} className={clsx("text-center", value == "withdraw" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
                     <Link href="/withdraw" className={clsx(value == "withdraw" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>WITHDRAW</Link>
+                </div>
+                <div onClick={handleSideBar} className={clsx("text-center", value == "about" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
+                    <Link href="/about" className={clsx(value == "about" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>ABOUT</Link>
                 </div>
                 <div onClick={handleSideBar} className={clsx("text-center", value == "support" ? "bg-[#142632]" : "bg-[#0F212E]", "hover:bg-[#142632]", "rounded-lg", "px-2", "py-6")}>
                     <Link href="/support" className={clsx(value == "support" ? "text-[#7A848B]" : "text-white", "hover:text-[#7A848B]", "font-black", "text-lg")}>SUPPORT</Link>
