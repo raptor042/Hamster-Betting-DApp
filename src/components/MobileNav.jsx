@@ -65,12 +65,12 @@ export default function MobileNav({ value }) {
             <div className="basis-2/6 mt-12">
                 <div className="grid grid-cols-3">
                     <div className="flex justify-center items-center">
-                        <Link href="https://t.me/racinghamstersbot">
+                        <Link href="https://t.me/ilovemyhams">
                             <FaTelegram size={48} color="#fff" className=""/>
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href="https://x.com/racinghamsters">
+                        <Link href="https://x.com/ilovemyhams">
                             <FaXTwitter size={48} color="#fff" className=""/>
                         </Link>
                     </div>

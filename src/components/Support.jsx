@@ -19,12 +19,12 @@ export default function Support() {
                     <div className="mt-8 sm:px-40 py-4">
                         <div className="grid grid-cols-3">
                             <div className="flex justify-center items-center">
-                                <Link href="https://t.me/racinghamstersbot">
+                                <Link href="https://t.me/ilovemyhams">
                                     <FaTelegram size={48} color="#fff" className=""/>
                                 </Link>
                             </div>
                             <div className="flex justify-center items-center">
-                                <Link href="https://x.com/racinghamsters">
+                                <Link href="https://x.com/ilovemyhams">
                                     <FaXTwitter size={48} color="#fff" className=""/>
                                 </Link>
                             </div>
